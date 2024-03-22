@@ -1,4 +1,11 @@
 local colorbuddy = require("colorbuddy")
+local lualine_anoukis = require("lualine.themes.anoukis")
+
+require("lualine").setup({
+  options = {
+    theme = lualine_anoukis,
+  },
+})
 
 colorbuddy.colorscheme("anoukis")
 local Color = colorbuddy.Color
@@ -138,7 +145,7 @@ Group.new("TabLine", c.darkGray, c.gray)
 Group.new("TabLineFill", nil, c.bg)
 Group.new("TabLineSel", c.primary, c.lightGray, s.underline)
 Group.new("Title", c.black)
-Group.new("Visual", c.constant, c.bg:dark())
+Group.new("Visual", c.constant, c.softPurple:dark())
 Group.new("VisualMode", g.Visual, g.Visual)
 Group.new("VisualLineMode", g.Visual, g.Visual)
 Group.new("VisualNOS", g.Visual)
