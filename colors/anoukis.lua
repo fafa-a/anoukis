@@ -88,69 +88,69 @@ local background_string = "#FBF9FF"
 Color.new("background", background_string)
 Color.new("softPurple", background_string)
 
-Group.new("Normal", c.keyword, c.softPurple)
+Group.new("Normal", c.keyword, c.softPurple) -- Normal text
 Group.new("NormalNC", c.fg, c.bgFloat)
 Group.new("InvNormal", c.softPurple, c.error)
-Group.new("NormalFloat", c.fg, c.bgFloat)
-Group.new("FloatBorder", c.black)
-Group.new("FloatTitle", c.constant, nil, s.bold)
+Group.new("NormalFloat", c.fg, c.bgFloat) -- Normal text in floating windows
+Group.new("NormalSB", nil, c.bgFloat) -- Normal text in floating windows.
+Group.new("FloatBorder", c.black) -- Border of floating windows
+Group.new("FloatTitle", c.constant, nil, s.bold) -- Title of floating windows
 
-Group.new("CursorLine", nil, c.CursorLine)
-Group.new("Whitespace", c.superwhite)
-Group.new("Comment", c.comment, nil, s.italic)
-Group.new("LineNr", c.comment)
-Group.new("CursorLineNr", c.comment)
-Group.new("Search", c.softPurple, c.search)
-Group.new("IncSearch", c.softPurple, c.search)
-Group.new("CurSearch", c.softPurple, c.violet:dark())
+Group.new("CursorLine", nil, c.CursorLine) -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+Group.new("Whitespace", c.superwhite) -- "nbsp", "space", "tab" and "trail" in 'listchars'
+Group.new("Comment", c.comment, nil, s.italic) -- Any comment
+Group.new("LineNr", c.comment) -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+Group.new("CursorLineNr", c.comment) -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+Group.new("Search", c.softPurple, c.search) -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+Group.new("IncSearch", c.softPurple, c.search) -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+Group.new("CurSearch", c.softPurple, c.violet:dark()) -- Highlighting a search pattern under the cursor (see 'hlsearch')
 
-Group.new("NormalSB", nil, c.bgFloat)
-Group.new("ColorColumn", nil, c.cursor:light():light())
-Group.new("Conceal", nil)
-Group.new("Cursor", c.softPurple, c.cursor)
-Group.new("lCursor", g.Cursor)
-Group.new("CursorIM", g.Cursor)
-Group.new("Directory", c.punctuation)
+Group.new("ColorColumn", nil, c.cursor:light():light()) -- Columns set with 'colorcolumn'
+Group.new("Conceal", nil) -- Placeholder characters substituted for concealed text (see 'conceallevel')
+Group.new("Cursor", c.softPurple, c.cursor) -- character under the cursor
+Group.new("lCursor", g.Cursor) -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+Group.new("CursorIM", g.Cursor) -- like Cursor, but used when in IME mode
+Group.new("Directory", c.punctuation) -- directory names (and other special names in listings)
 -- Group.new("EndOfBuffer", nil, c.punctuation)
-Group.new("TermCursor", c.white, c.black)
-Group.new("TermCursorNC", nil)
-Group.new("ErrorMsg", nil, c.error)
+Group.new("TermCursor", c.white, c.black) -- cursor in a focused terminal
+Group.new("TermCursorNC", nil) -- cursor in an unfocused terminal
+Group.new("ErrorMsg", nil, c.error) -- error messages on the command line
 
-Group.new("VertSplit", c.black)
-Group.link("Winseparator", g.VertSplit)
+Group.new("VertSplit", c.black) -- Column separating vertically split windows
+Group.link("Winseparator", g.VertSplit) -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
 
-Group.new("Folded", c.tag, c.punctuation)
-Group.new("SignColumn", g.Normal)
-Group.new("FoldColumn", g.SignColumn)
-Group.new("Substitute", g.IncSearch)
-Group.new("MatchParen", c.bg, c.BrightMagenta)
-Group.new("ModeMsg", g.Normal)
-Group.new("MsgArea", g.Normal)
+Group.new("Folded", c.tag, c.punctuation) -- line used for closed folds
+Group.new("SignColumn", g.Normal) -- column where |signs| are displayed
+Group.new("FoldColumn", g.SignColumn) -- 'foldcolumn'
+Group.new("Substitute", g.IncSearch) -- |:substitute| replacement text highlighting
+Group.new("MatchParen", c.bg, c.BrightMagenta) -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+Group.new("ModeMsg", g.Normal) -- 'showmode' message (e.g., "-- INSERT -- ")
+Group.new("MsgArea", g.Normal) -- Area for messages and cmdline
 -- Group.new("MsgSeparator", nil)
-Group.new("MoreMsg", c.primary)
-Group.new("NonText", c.white)
-Group.new("NormalNC", g.Normal)
+Group.new("MoreMsg", c.primary) -- |more-prompt|
+Group.new("NonText", c.white) -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+Group.new("NormalNC", g.Normal) -- normal text in non-current windows
 
 -- TODO work on design
-Group.new("Pmenu", c.bg, c.black)
-Group.new("PmenuSel", c.black, c.selection)
-Group.new("PmenuSbar", nil, c.lightGray)
-Group.new("PmenuThumb", nil, c.darkGray)
-Group.new("Question", c.primary)
-Group.new("QuickFixLine", c.white, c.primary)
-Group.new("SpecialKey", c.attribute)
-Group.new("StatusLine", c.tag, c.softPurple)
-Group.new("StatusLineNC", c.tag, c.softPurple)
-Group.new("TabLine", c.darkGray, c.gray)
-Group.new("TabLineFill", nil, c.bg)
-Group.new("TabLineSel", c.primary, c.lightGray, s.underline)
-Group.new("Title", c.black)
-Group.new("Visual", c.constant, c.softPurple:dark())
-Group.new("VisualMode", g.Visual, g.Visual)
-Group.new("VisualLineMode", g.Visual, g.Visual)
-Group.new("VisualNOS", g.Visual)
-Group.new("WarningMsg", c.warning)
-Group.new("WildMenu", nil, c.selection)
+Group.new("Pmenu", c.bg, c.black) -- Popup menu: normal item.
+Group.new("PmenuSel", c.black, c.selection) -- Popup menu: selected item.
+Group.new("PmenuSbar", nil, c.lightGray) -- Popup menu: scrollbar.
+Group.new("PmenuThumb", nil, c.darkGray) -- Popup menu: Thumb of the scrollbar.
+Group.new("Question", c.primary) -- |hit-enter| prompt and yes/no questions
+Group.new("QuickFixLine", c.white, c.primary) -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+Group.new("SpecialKey", c.attribute) -- Unprintable characters: text displayed differently from what it really is.
+Group.new("StatusLine", c.tag, c.softPurple) -- status line of current window
+Group.new("StatusLineNC", c.tag, c.softPurple) -- status line of non-current window
+Group.new("TabLine", c.darkGray, c.gray) -- tab pages line, not active tab page label
+Group.new("TabLineFill", c.constant, c.bg) -- tab pages line, where there are no labels
+Group.new("TabLineSel", c.primary, c.lightGray, s.underline) -- tab pages line, active tab page label
+Group.new("Title", c.black) -- titles for output from ":set all", ":autocmd" etc.
+Group.new("Visual", c.constant, c.softPurple:dark()) -- Visual mode selection
+Group.new("VisualMode", g.Visual, g.Visual) -- Visual mode selection
+Group.new("VisualLineMode", g.Visual, g.Visual) -- Visual mode selection
+Group.new("VisualNOS", g.Visual) -- Visual mode selection when vim is "Not Owning the Selection".
+Group.new("WarningMsg", c.warning) -- warning messages
+Group.new("WildMenu", nil, c.selection) -- current match in 'wildmenu' completion
 
 Group.new("Variable", c.constant)
 Group.link("@variable", g.Variable)
@@ -373,7 +373,6 @@ Group.new("TroubleCount", c.warning)
 Group.new("TroubleText", c.constant)
 
 -- Dressing
-
 
 --svelte
 Group.new("@tag.svelte", c.diffAdd)
