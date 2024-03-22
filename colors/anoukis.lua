@@ -88,6 +88,9 @@ local background_string = "#FBF9FF"
 Color.new("background", background_string)
 Color.new("softPurple", background_string)
 
+--TODO: DELETE
+Group.new("Debug", c.error, c.BrightMagenta)
+
 Group.new("Normal", c.keyword, c.softPurple) -- Normal text
 Group.new("NormalNC", c.fg, c.bgFloat)
 Group.new("InvNormal", c.softPurple, c.error)
@@ -372,7 +375,44 @@ Group.link("TroubleNormal", g.Normal)
 Group.new("TroubleCount", c.warning)
 Group.new("TroubleText", c.constant)
 
--- Dressing
+-- BufferLine
+Group.link("BufferLineFill", g.Normal)
+Group.new("BufferLineBackground", c.bg, c.comment)
+Group.new("BufferLineBufferSelected", c.label, c.bg, s.bold + s.italic)
+Group.link("BufferLineIndicatorSelected", g.BufferLineBufferSelected)
+
+-- separators
+Group.new("BufferLineSeparator", c.tag, c.comment)
+Group.link("BufferLineOffsetSeparator", g.Debug)
+
+-- close buttons
+Group.new("BufferLineCloseButton", c.bg, c.comment)
+Group.new("BufferLineCloseButtonVisible", c.bg)
+Group.new("BufferLineCloseButtonSelected", c.label, c.bg)
+
+-- Group.new("BufferLineDevIconLua", c.error, c.BrightMagenta)
+-- Group.new("BufferLineDevIconLuaSelected", c.error, c.BrightMagenta)
+-- Group.new("BufferLineIndicatorVisible", c.type, c.error)
+-- Group.new("BufferLineSeparatorSelected", c.type, c.error)
+-- Group.new("BufferLineWarningDiagnosticSelected", c.warning, c.primary, s.underline)
+-- Group.new("BufferLineErrorDiagnosticSelected", c.error, c.primary, s.underline)
+-- Group.new("BufferLineInfoDiagnosticSelected", c.info, c.primary, s.underline)
+-- Group.new("BufferLineHintDiagnosticSelected", c.hint, c.primary, s.underline)
+-- Group.new("BufferLineTabSeparatorSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineCloseButtonSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineDiagnosticSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineDevIconLuaSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineIndicatorSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineDuplicateSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineModifiedSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineNumbersSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineBufferSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLinePickSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineTabSelected", c.primary, c.error, s.underline)
+-- Group.new("BufferLineWarningSelected", c.warning, c.primary, s.underline)
+-- Group.new("BufferLineErrorSelected", c.error, c.primary, s.underline)
+-- Group.new("BufferLineInfoSelected", c.info, c.primary, s.underline)
+-- Group.new("BufferLineHintSelected", c.hint, c.primary, s.underline)
 
 --svelte
 Group.new("@tag.svelte", c.diffAdd)
