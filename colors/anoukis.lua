@@ -93,7 +93,7 @@ Group.new("NormalNC", c.fg, c.bgFloat)
 Group.new("InvNormal", c.softPurple, c.error)
 Group.new("NormalFloat", c.fg, c.bgFloat)
 Group.new("FloatBorder", c.black)
-Group.new("FloatTitle", c.Constant, c.softPurple)
+Group.new("FloatTitle", c.constant, nil, s.bold)
 
 Group.new("CursorLine", nil, c.CursorLine)
 Group.new("Whitespace", c.superwhite)
@@ -371,6 +371,9 @@ Group.new("DashboardFiles", g.DashboardHeader)
 Group.link("TroubleNormal", g.Normal)
 Group.new("TroubleCount", c.warning)
 Group.new("TroubleText", c.constant)
+
+-- Dressing
+
 
 --svelte
 Group.new("@tag.svelte", c.diffAdd)
