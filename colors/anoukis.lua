@@ -60,6 +60,8 @@ Color.new("added", "#3cbc66")
 Color.new("changed", "#0099e1")
 Color.new("deleted", "#FA7883")
 Color.new("diffText", "#C2E4FF")
+Color.new("ok", "#3cbc66")
+Color.new("okBG", "#E6FFEC")
 Color.new("error", "#ff0000")
 Color.new("errorBG", "#FCE4E4")
 Color.new("warning", "#ff8f3a")
@@ -143,7 +145,7 @@ Group.new("Question", c.primary) -- |hit-enter| prompt and yes/no questions
 Group.new("QuickFixLine", c.white, c.primary) -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 Group.new("SpecialKey", c.attribute) -- Unprintable characters: text displayed differently from what it really is.
 Group.new("StatusLine", c.tag, c.softPurple) -- status line of current window
-Group.new("StatusLineNC", c.tag, c.softPurple) -- status line of non-current window
+Group.new("StatusLineNC", c.softPurple, c.tag) -- status line of non-current window
 Group.new("TabLine", c.darkGray, c.gray) -- tab pages line, not active tab page label
 Group.new("TabLineFill", c.constant, c.bg) -- tab pages line, where there are no labels
 Group.new("TabLineSel", c.primary, c.lightGray, s.underline) -- tab pages line, active tab page label
@@ -413,6 +415,11 @@ Group.new("BufferLineCloseButtonSelected", c.label, c.bg)
 -- Group.new("BufferLineErrorSelected", c.error, c.primary, s.underline)
 -- Group.new("BufferLineInfoSelected", c.info, c.primary, s.underline)
 -- Group.new("BufferLineHintSelected", c.hint, c.primary, s.underline)
+
+-- NeoVim
+Group.new("healthError", c.error,c.errorBG )
+Group.new("healthSuccess", c.ok, c.okBG)
+Group.new("healthWarning", c.warning, c.warningBG)
 
 --svelte
 Group.new("@tag.svelte", c.diffAdd)
