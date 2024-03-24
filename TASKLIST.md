@@ -1,9 +1,9 @@
 # Task List
 
 - [ ]  Refactor color naming
+- [ ]  Improve Bufferline
+- [ ]  Improve PMENU
 - [ ]  Set CMP
-- [ ]  Verify base colors
 - [ ]  Add options
-- [ ]  Add some popular plugins
 - [ ]  Improve README
 - [ ]  Wezterm theme
