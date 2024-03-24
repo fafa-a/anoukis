@@ -15,7 +15,7 @@ Note: requires neovim >= 0.9.0
 [Packer](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use "fafa-a/anoukis",
+use "fafa-a/anoukis"
 ```
 
 
