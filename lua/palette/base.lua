@@ -60,6 +60,7 @@ local style = {
   italic = "italic",
   underline = "underline",
   undercurl = "undercurl",
+  strikethrough = "strikethrough",
 }
 
 return {

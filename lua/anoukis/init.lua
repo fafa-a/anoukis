@@ -1,6 +1,8 @@
 local editor = require("anoukis.editor")
+local lualine_anoukis = require("lualine.themes.anoukis")
 local syntax = require("anoukis.syntax")
 local terminal = require("anoukis.terminal")
+
 local M = {}
 
 local function get_plugin_filenames(directory)
@@ -37,22 +39,38 @@ function M.syntax(stx)
   end
 end
 
+local function get_plugin_directory()
+  local script_path = debug.getinfo(1, "S").source:sub(2)
+  local script_dir = script_path:match("(.*/)") or ""
+  return script_dir .. "plugins/"
+end
+
 function M.load()
   local e = editor.setup()
   local s = syntax.setup()
   terminal.setup()
+
   vim.o.termguicolors = true
   vim.g.colors_name = "anoukis"
+
   M.syntax(e.highlights)
   M.syntax(s.highlights)
 
-  local plugin_names = get_plugin_filenames("/home/fafa/code/anoukis/lua/anoukis/plugins/")
+  local plugin_dir = get_plugin_directory()
+  print(plugin_dir)
+  local plugin_names = get_plugin_filenames(plugin_dir)
+
   for _, name in ipairs(plugin_names) do
     local plugin = require("anoukis.plugins." .. name)
     local p = plugin.setup()
     M.syntax(p.highlights)
   end
 
+  require("lualine").setup({
+    options = {
+      theme = lualine_anoukis,
+    },
+  })
 end
 
 return M
