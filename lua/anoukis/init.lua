@@ -1,5 +1,4 @@
 local editor = require("anoukis.editor")
-local lualine_anoukis = require("lualine.themes.anoukis")
 local syntax = require("anoukis.syntax")
 local terminal = require("anoukis.terminal")
 
@@ -61,14 +60,28 @@ function M.load()
   local plugin_names = get_plugin_filenames(plugin_dir)
 
   for _, name in ipairs(plugin_names) do
+    if name == "bufferline" then
+      local bufferline = require("bufferline")
+      bufferline.setup({
+        options = {
+          highlights = require("anoukis.plugins.bufferline").setup(),
+          style_preset = {
+            bufferline.style_preset.minimal,
+          },
+        },
+      })
+      goto continue
+    end
+
     local plugin = require("anoukis.plugins." .. name)
     local p = plugin.setup()
     M.syntax(p.highlights)
+    ::continue::
   end
 
   require("lualine").setup({
     options = {
-      theme = lualine_anoukis,
+      theme = require("lualine.themes.anoukis"),
     },
   })
 end
