@@ -5,8 +5,6 @@ local M = {}
 
 function M.setup()
   local theme = {}
-  -- example
-  --  Example = { fg = c.fg, bg = c.bg, style = {s.bold, s.italic} },
   theme.highlights = {
     Comment = { fg = c.comment, style = s.italic }, -- Any comment
     SpecialComment = { link = "Special" }, -- Any comment

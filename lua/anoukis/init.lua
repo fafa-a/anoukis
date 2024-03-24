@@ -57,7 +57,7 @@ function M.load()
   M.syntax(s.highlights)
 
   local plugin_dir = get_plugin_directory()
-  print(plugin_dir)
+
   local plugin_names = get_plugin_filenames(plugin_dir)
 
   for _, name in ipairs(plugin_names) do

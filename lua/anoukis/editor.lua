@@ -49,10 +49,11 @@ function M.setup()
     IncSearch = { link = "Search" }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch = { fg = c.bg, bg = p.purple800 }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     SpecialKey = { fg = c.attribute }, -- Unprintable characters: text displayed differently from what it really is.
-    SpellBad = { fg = c.error.fg, bg = c.error.bg, style = s.undercurl }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-    SpellCap = { fg = c.warning.fg, bg = c.warning.bg, style = s.undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    SpellLocal = { fg = c.info.fg, bg = c.info.bg, style = s.undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
-    SpellRare = { fg = p.gray500, bg = p.gray200, style = s.undercurl }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.    StatusLine = { fg = c.tag, bg = p.purple100 },
+    -- FIXME highlight any word as an error 
+    -- SpellBad = { fg = c.error.fg, bg = c.error.bg, style = s.undercurl }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+    -- SpellCap = { fg = c.warning.fg, bg = c.warning.bg, style = s.undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+    -- SpellLocal = { fg = c.info.fg, bg = c.info.bg, style = s.undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+    -- SpellRare = { fg = p.gray500, bg = p.gray200, style = s.undercurl }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.    StatusLine = { fg = c.tag, bg = p.purple100 },
     StatusLine = { fg = c.tag, bg = p.purple100 }, -- status line of current window
     StatusLineNC = { fg = p.purple100, bg = c.tag }, -- status line of non-current window
     TabLine = { fg = p.slate700, bg = p.slate800 }, -- tab pages line, not active tab page label
