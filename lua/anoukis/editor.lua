@@ -18,7 +18,7 @@ function M.setup()
     -- CursorColumn = { bg = c.cursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine = { bg = c.cursorLine }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if forecrust (ctermfg OR guifg) is not set.
     Directory = { fg = c.punctuation }, -- directory names (and other special names in listings)
-    -- EndOfBuffer = { fg = c.purple100 }, -- filler lines (~) after the end of the buffer.  By default,-- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|. this is highlighted like |hl-NonText|.
+    EndOfBuffer = { bg = c.bg }, -- filler lines (~) after the end of the buffer.  By default,-- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|. this is highlighted like |hl-NonText|.
     ErrorMsg = { fg = c.error.fg, bg = c.error.bg }, -- error messages on the command line
     VertSplit = { fg = p.slate700 }, -- the column separating vertically split windows
     Folded = { fg = c.tag, bg = c.punctuation }, -- line used for closed folds
