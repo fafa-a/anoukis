@@ -1,10 +1,10 @@
-local c = require("palette.base").colors
-local s = require("palette.base").style
-local p = require("palette.colors")
+-- local c = require("palette.base").colors
+-- local s = require("palette.base").style
+-- local p = require("palette.colors")
 local M = {}
 -- Ref: https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md
 
-function M.setup()
+function M.setup( _, s, p)
   local theme = {}
   theme.highlights = {
     -- identifiers

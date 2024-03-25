@@ -1,7 +1,6 @@
-local p = require("palette.colors")
 local M = {}
 
-function M.setup()
+function M.setup(p)
   vim.g.terminal_color_0 = p.slate800
   vim.g.terminal_color_1 = p.red500
   vim.g.terminal_color_2 = p.green500

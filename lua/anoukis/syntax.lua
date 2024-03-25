@@ -1,9 +1,9 @@
-local c = require("palette.base").colors
-local s = require("palette.base").style
-local p = require("palette.colors")
+-- local c = require("palette.base").colors
+-- local s = require("palette.base").style
+-- local p = require("palette.colors")
 local M = {}
 
-function M.setup()
+function M.setup(c, s, p)
   local theme = {}
   theme.highlights = {
     Comment = { fg = c.comment, style = s.italic }, -- Any comment

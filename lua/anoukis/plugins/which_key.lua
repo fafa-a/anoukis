@@ -1,7 +1,7 @@
-local c = require("palette.base").colors
+-- local c = require("palette.base").colors
 local M = {}
 
-function M.setup()
+function M.setup(c)
   local theme = {}
 
   theme.highlights = {

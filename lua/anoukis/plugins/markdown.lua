@@ -1,9 +1,9 @@
-local c = require("palette.base").colors
-local s = require("palette.base").style
-local p = require("palette.colors")
+-- local c = require("palette.base").colors
+-- local s = require("palette.base").style
+-- local p = require("palette.colors")
 local M = {}
 
-function M.setup()
+function M.setup(_,s,p)
   local theme = {}
 
   --TODO i dont know if this works

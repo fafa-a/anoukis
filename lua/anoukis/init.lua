@@ -1,6 +1,9 @@
 local editor = require("anoukis.editor")
 local syntax = require("anoukis.syntax")
 local terminal = require("anoukis.terminal")
+local c = require("palette.base").colors
+local s = require("palette.base").style
+local p = require("palette.colors")
 
 local M = {}
 
@@ -45,15 +48,15 @@ local function get_plugin_directory()
 end
 
 function M.load()
-  local e = editor.setup()
-  local s = syntax.setup()
-  terminal.setup()
+  local ed = editor.setup(c, s, p)
+  local sy = syntax.setup(c, s, p)
+  terminal.setup(p)
 
   vim.o.termguicolors = true
   vim.g.colors_name = "anoukis"
 
-  M.syntax(e.highlights)
-  M.syntax(s.highlights)
+  M.syntax(ed.highlights)
+  M.syntax(sy.highlights)
 
   local plugin_dir = get_plugin_directory()
 
@@ -65,8 +68,8 @@ function M.load()
     end
 
     local plugin = require("anoukis.plugins." .. name)
-    local p = plugin.setup()
-    M.syntax(p.highlights)
+    local pl = plugin.setup( c, s, p)
+    M.syntax(pl.highlights)
     ::continue::
   end
 
@@ -75,10 +78,6 @@ function M.load()
       theme = require("lualine.themes.anoukis"),
     },
   })
-  -- local bufferline = require("bufferline")
-  -- bufferline.setup({
-  --   highlights = require("anoukis.plugins.bufferline").setup(),
-  -- })
-end
+  end
 
 return M
