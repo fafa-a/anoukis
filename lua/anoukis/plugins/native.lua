@@ -33,7 +33,7 @@ function M.setup()
     LspDiagnosticsDefaultInformation = { link = "Todo" }, -- Used as the default "Info" diagnostic highlight group for signs and virtual text
     LspDiagnosticsDefaultHint = { link = "Todo" }, -- Used as the default "Hint" diagnostic highlight group for signs and virtual text
 
-    LspSignatureActiveParameter = { fg = p.green500, bg = p.green200 }, -- Used for active parameter highlight in signature help
+    LspSignatureActiveParameter = { link = "Keyword" }, -- Used for active parameter highlight in signature help
     -- LspDiagnosticsFloatingError         = { }, -- Used to color "Error" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingWarning       = { }, -- Used to color "Warning" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingInformation   = { }, -- Used to color "Information" diagnostic messages in diagnostics float

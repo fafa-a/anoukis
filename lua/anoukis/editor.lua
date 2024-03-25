@@ -37,7 +37,7 @@ function M.setup()
     NorlmalNC = { link = "Normal" }, -- normal text in non-current windows
     -- NormalSB = { link = "Normal" }, -- normal text in non-current windows
     NormalFloat = { fg = c.fg, bg = c.bgFloat }, -- Normal text in floating windows
-    FloatBorder = { fg = p.slate900 }, -- Border of floating windows
+    FloatBorder = { fg = p.slate900, bg = c.bg }, -- Border of floating windows
     FloatTitle = { fg = c.constant, style = s.bold }, -- Title of floating windows
     Pmenu = { fg = c.fg, bg = p.gray100, blend = 0 }, -- Popup menu: normal item.
     PmenuSel = { bg = p.gray300 }, -- Popup menu: selected item.
@@ -49,7 +49,7 @@ function M.setup()
     IncSearch = { link = "Search" }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch = { fg = c.bg, bg = p.purple800 }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     SpecialKey = { fg = c.attribute }, -- Unprintable characters: text displayed differently from what it really is.
-    -- FIXME highlight any word as an error 
+    -- FIXME highlight any word as an error
     SpellBad = { fg = c.error.fg, bg = c.error.bg, style = s.undercurl }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap = { fg = c.warning.fg, bg = c.warning.bg, style = s.undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal = { fg = c.info.fg, bg = c.info.bg, style = s.undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.

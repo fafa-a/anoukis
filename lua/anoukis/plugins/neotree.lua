@@ -20,6 +20,8 @@ function M.setup()
     NeoTreeIndentMarker = { fg = p.purple100 },
     NeoTreeSymbolicLinkTarget = { fg = p.purple700 },
     NeoTreeTitleBar = { fg = p.slate100, bg = p.slate800 },
+		NeoTreeFloatBorder = { link = "FloatBorder" },
+		NeoTreeFloatTitle = { link = "FloatTitle" },
 
     -- TODO: Add more highlights
     --
@@ -42,8 +44,6 @@ function M.setup()
 		-- NeoTreeGitUntracked = { fg = C.mauve },
 		-- NeoTreeGitStaged = { fg = C.green },
 		--
-		-- NeoTreeFloatBorder = { link = "FloatBorder" },
-		-- NeoTreeFloatTitle = { link = "FloatTitle" },
 		-- NeoTreeTitleBar = { fg = C.mantle, bg = C.blue },
 		--
 		-- NeoTreeFileNameOpened = { fg = C.pink },
