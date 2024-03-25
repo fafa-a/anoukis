@@ -61,15 +61,6 @@ function M.load()
 
   for _, name in ipairs(plugin_names) do
     if name == "bufferline" then
-      local bufferline = require("bufferline")
-      bufferline.setup({
-        options = {
-          highlights = require("anoukis.plugins.bufferline").setup(),
-          style_preset = {
-            bufferline.style_preset.minimal,
-          },
-        },
-      })
       goto continue
     end
 
@@ -84,6 +75,10 @@ function M.load()
       theme = require("lualine.themes.anoukis"),
     },
   })
+  -- local bufferline = require("bufferline")
+  -- bufferline.setup({
+  --   highlights = require("anoukis.plugins.bufferline").setup(),
+  -- })
 end
 
 return M

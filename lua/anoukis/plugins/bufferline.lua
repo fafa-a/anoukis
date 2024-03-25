@@ -1,297 +1,83 @@
 local c = require("palette.base").colors
-local s = require("palette.base").style
 local p = require("palette.colors")
 local M = {}
 
 function M.setup()
   local theme = {}
-  -- example
-  --  Example = { fg = c.fg, bg = c.bg, style = {s.bold, s.italic} },
-  -- BufferLineFill = { link = "Normal" },
-  -- BufferBackground = { fg = c.bg, bg = p.slate200 },
-  -- BufferLineBufferSelected = { fg = c.constant, bg = c.bg, style = { s.bold, s.italic } },
-  -- BufferLineIndicator = { fg = c.bg, bg = c.bg },
-  -- BufferLineIndicatorVisible = { link = "Error" },
-  -- BufferLineIndicatorSelected = { link = "BufferLineBufferSelected" },
-  --
-  -- BufferLineSeparator = { fg = c.constant, bg = p.slate200 },
-  -- BufferLineOffsetSeparator = { link = "Debug" },
 
-  -- BufferLineCloseButton = { fg = c.bg, bg = p.slate200 },
-  -- BufferLineCloseButtonVisible = { fg = c.bg },
-  -- BufferLineCloseButtonSelected = { fg = c.constant, bg = c.bg },
-  --
-  -- BufferLineDevIconLua = { link = "Error" },
-  -- BufferLineDevIconLuaSelected = { link = "Error" },
-  -- BufferLineIndicatorVisible = { fg = c.type, bg = c.error },
-  -- BufferLineSeparatorSelected = { fg = c.type, bg = c.error },
-  -- BufferLineWarningDiagnosticSelected = { fg = c.warning, bg = c.primary, style = s.underline },
-  -- BufferLineErrorDiagnosticSelected = { fg = c.error, bg = c.primary, style = s.underline },
-  -- BufferLineInfoDiagnosticSelected = { fg = c.info, bg = c.primary, style = s.underline },
-  -- BufferLineHintDiagnosticSelected = { fg = c.hint, bg = c.primary, style = s.underline },
-  -- BufferLineTabSeparatorSelected = { fg = c.primary, bg = c.error, style = s.underline },
-  -- BufferLineDiagnosticSelected = { fg = c.primary, bg = c.error, style = s.underline },
-  -- BufferLineDuplicateSelected = { fg = c.primary, bg = c.error, style = s.underline },
-  -- BufferLineModifiedSelected = { fg = c.primary, bg = c.error, style = s.underline },
-  -- BufferLineNumbersSelected = { fg = c.primary, bg = c.error, style = s.underline },
-  -- BufferLinePickSelected = { fg = c.primary, bg = c.error, style = s.underline },
-  -- BufferLineTabSelected = { fg = c.primary, bg = c.error, style = s.underline },
-  -- BufferLineWarningSelected = { fg = c.warning, bg = c.primary, style = s.underline },
-  -- BufferLineErrorSelected = { fg = c.error, bg = c.primary, style = s.underline },
-  -- BufferLineInfoSelected = { fg = c.info, bg = c.primary, style = s.underline },
-  -- BufferLineHintSelected = { fg = c.hint, bg = c.primary, style = s.underline },
+  local bg_highlight = p.purple200
+  local active_bg = c.bg
+  local inactive_bg = p.purple200
+
+  local separator_fg = p.slate900
 
   theme = {
-    fill = { fg = c.bg, bg = p.slate200 },
-    background = { fg = c.bg, bg = p.slate200 },
-    close_button = { fg = c.bg, bg = p.red600 },
-    close_button_visible = { fg = c.bg, bg = p.red800 },
-    close_button_selected = { fg = p.green300, bg = p.red600 },
-    buffer_visible = { fg = c.bg, bg = p.slate200 },
-    buffer_selected = { fg = c.constant, bg = c.bg, bold = false, italic = false }, -- current
-    separator_selected = { fg = c.constant, bg = c.constant},
-    separator_visible = { fg = c.constant, bg = c.constant },
-    separator = { fg = c.constant, bg = c.constant},
-    -- tab = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- tab_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- tab_separator = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- tab_separator_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   underline = "<colour-value-here>",
-    -- },
-    -- tab_close = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
+    -- buffers
+    background = { fg = p.slate600, bg = inactive_bg },
+    buffer_visible = { fg = p.slate600, bg = inactive_bg },
+    buffer_selected = { fg = c.constant, bg = active_bg, bold = false, italic = false }, -- current
+    -- Duplicate
+    duplicate_selected = { fg = c.constant, bg = active_bg, bold = false, italic = false },
+    duplicate_visible = { fg = p.slate300, bg = inactive_bg, bold = false, italic = false },
+    duplicate = { fg = p.slate300, bg = inactive_bg, bold = false, italic = false },
+    -- tabs
+    tab = { fg = p.slate300, bg = inactive_bg },
+    tab_selected = { fg = p.constant, bg = active_bg, bold = true },
+    tab_separator = { fg = separator_fg, bg = inactive_bg },
+    tab_separator_selected = { fg = separator_fg, bg = active_bg },
 
-    -- numbers = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- numbers_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- numbers_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- diagnostic = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- diagnostic_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- diagnostic_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- hint = {
-    --   fg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- hint_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- hint_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- hint_diagnostic = {
-    --   fg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- hint_diagnostic_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- hint_diagnostic_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- info = {
-    --   fg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- info_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- info_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- info_diagnostic = {
-    --   fg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- info_diagnostic_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- info_diagnostic_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- warning = {
-    --   fg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- warning_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- warning_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- warning_diagnostic = {
-    --   fg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- warning_diagnostic_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- warning_diagnostic_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- error = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    -- },
-    -- error_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- error_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- error_diagnostic = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    -- },
-    -- error_diagnostic_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- error_diagnostic_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   sp = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- modified = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- modified_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- modified_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- duplicate_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   italic = true,
-    -- },
-    -- duplicate_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   italic = true,
-    -- },
-    -- duplicate = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   italic = true,
-    -- },
-    -- indicator_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- indicator_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- pick_selected = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- pick_visible = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- pick = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    --   bold = true,
-    --   italic = true,
-    -- },
-    -- offset_separator = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
-    -- trunc_marker = {
-    --   fg = "<colour-value-here>",
-    --   bg = "<colour-value-here>",
-    -- },
+    tab_close = { fg = p.red500, bg = inactive_bg },
+    indicator_selected = { fg = c.constant, bg = active_bg, bold = false, italic = false },
+    -- separators
+    separator = { fg = separator_fg, bg = inactive_bg },
+    separator_visible = { fg = separator_fg, bg = inactive_bg },
+    separator_selected = { fg = separator_fg, bg = active_bg },
+    offset_separator = { fg = separator_fg, bg = active_bg },
+    -- close buttons
+    close_button = { fg = p.slate600, bg = inactive_bg },
+    close_button_visible = { fg = p.slate600, bg = inactive_bg },
+    close_button_selected = { fg = c.constant, bg = active_bg },
+    -- Empty fill
+    fill = { bg = bg_highlight },
+    -- Numbers
+    numbers = { fg = p.slate300, bg = inactive_bg },
+    numbers_visible = { fg = p.slate300, bg = inactive_bg },
+    numbers_selected = { fg = p.slate300, bg = active_bg, bold = false, italic = false },
+    -- Errors
+    error = { fg = c.error.fg, bg = inactive_bg },
+    error_visible = { fg = c.error.fg, bg = inactive_bg },
+    error_selected = { fg = c.error.fg, bg = active_bg, bold = false, italic = false },
+    error_diagnostic = { fg = c.error.fg, bg = inactive_bg },
+    error_diagnostic_visible = { fg = c.error.fg, bg = inactive_bg },
+    error_diagnostic_selected = { fg = c.error.fg, bg = active_bg },
+    -- Warnings
+    warning = { fg = c.warning.fg, bg = inactive_bg },
+    warning_visible = { fg = c.warning.fg, bg = inactive_bg },
+    warning_selected = { fg = c.warning.fg, bg = active_bg, bold = false, italic = false },
+    warning_diagnostic = { fg = c.warning.fg, bg = inactive_bg },
+    warning_diagnostic_visible = { fg = c.warning.fg, bg = inactive_bg },
+    warning_diagnostic_selected = { fg = c.warning.fg, bg = active_bg },
+    -- Infos
+    info = { fg = c.info.fg, bg = inactive_bg },
+    info_visible = { fg = c.info.fg, bg = inactive_bg },
+    info_selected = { fg = c.info.fg, bg = active_bg, bold = false, italic = false },
+    info_diagnostic = { fg = c.info.fg, bg = inactive_bg },
+    info_diagnostic_visible = { fg = c.info.fg, bg = inactive_bg },
+    info_diagnostic_selected = { fg = c.info.fg, bg = active_bg },
+    -- Hint
+    hint = { fg = c.info.fg, bg = inactive_bg },
+    hint_visible = { fg = c.info.fg, bg = inactive_bg },
+    hint_selected = { fg = c.info.fg, bg = active_bg, bold = false, italic = false },
+    hint_diagnostic = { fg = c.info.fg, bg = inactive_bg },
+    hint_diagnostic_visible = { fg = c.info.fg, bg = inactive_bg },
+    hint_diagnostic_selected = { fg = c.info.fg, bg = active_bg },
+    -- Diagnostics
+    diagnostic = { fg = p.slate300, bg = inactive_bg },
+    diagnostic_visible = { fg = p.slate300, bg = inactive_bg },
+    diagnostic_selected = { fg = p.slate300, bg = active_bg, bold = false, italic = false },
+    -- Modified
+    modified = { fg = p.rose500, bg = inactive_bg },
+    modified_selected = { fg = p.rose500, bg = active_bg },
   }
   return theme
 end
