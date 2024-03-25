@@ -54,13 +54,37 @@ local colors = {
     bg = p.orange200,
   },
 }
+-- bold         
+-- underline    
+-- undercurl    
+-- underdouble  
+-- underdotted  
+-- underdashed  
+-- strikethrough
+-- reverse      
+-- inverse	     
+-- italic       
+-- standout     
+-- altfont      
+-- nocombine    
+-- NONE	     
+
 
 local style = {
   bold = "bold",
-  italic = "italic",
   underline = "underline",
   undercurl = "undercurl",
+  underdouble = "underdouble",
+  underdotted = "underdotted",
+  underdashed = "underdashed",
   strikethrough = "strikethrough",
+  reverse = "reverse",
+  inverse = "inverse",
+  italic = "italic",
+  standout = "standout",
+  altfont = "altfont",
+  nocombine = "nocombine",
+  none = "NONE",
 }
 
 return {
