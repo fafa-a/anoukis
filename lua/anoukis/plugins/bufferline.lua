@@ -5,9 +5,9 @@ local M = {}
 function M.setup()
   local theme = {}
 
-  local bg_highlight = p.purple200
+  local bg_highlight = p.purple100
   local active_bg = c.bg
-  local inactive_bg = p.purple200
+  local inactive_bg = p.purple100
 
   local separator_fg = p.slate900
 

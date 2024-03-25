@@ -2,12 +2,12 @@ local p = require("palette.colors")
 
 local colors = {
   attribute = p.slate400,
-  bg = p.purple50,
-  bgFloat = p.purple200,
+  bg = p.purple25,
+  bgFloat = p.purple100,
   comment = p.slate300,
   constant = p.slate950,
   cursor = p.purple500,
-  cursorLine = p.purple100,
+  cursorLine = p.purple75,
   diff = {
     add = p.green500,
     change = p.blue500,
@@ -41,7 +41,6 @@ local colors = {
   keyword = p.slate500,
   label = p.slate400,
   method = p.slate800,
-  none = "NONE",
   number = p.slate800,
   parameter = p.slate400,
   property = p.slate400,
@@ -54,20 +53,7 @@ local colors = {
     bg = p.orange200,
   },
 }
--- bold         
--- underline    
--- undercurl    
--- underdouble  
--- underdotted  
--- underdashed  
--- strikethrough
--- reverse      
--- inverse	     
--- italic       
--- standout     
--- altfont      
--- nocombine    
--- NONE	     
+
 
 
 local style = {
