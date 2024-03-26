@@ -4,7 +4,7 @@
 local M = {}
 -- Ref: https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md
 
-function M.setup( _, s, p)
+function M.setup(c, s, p)
   local theme = {}
   theme.highlights = {
     -- identifiers
@@ -21,14 +21,14 @@ function M.setup( _, s, p)
     ["@label"] = { link = "Label" }, -- For labels: label: in C and :label: in Lua.
 
     --literals
-    ["@string"] = { link = "String" }, -- For strings.
+    ["@string"] = { fg = c.string, style = s.italic }, -- For strings.
     -- ["@string.regexp"] = {link = "String"}, -- For regexes.
     -- ["@string.escape"] = {link = "String"}, -- For escape characters within a string.
     -- ["@string.special"] = {link = "String"}, -- other special strings (e.g. dates)
     -- ["@string.special.symbol"] = {link = "String"},
     -- ["@string.special.url"] = {link = "String"}, -- urls, links and emails
 
-    ["@character"] = { link = "String" }, -- character literals
+    ["@character"] = { link = "@string" }, -- character literals
     -- ["@character.special"] = {link = "String"}, -- special characters (e.g. wildcards)
 
     ["@boolean"] = { link = "Boolean" }, -- For booleans.
@@ -153,6 +153,9 @@ function M.setup( _, s, p)
     -- Misc
     ["gitcommitSummary"] = { link = "Comment" },
     ["zshKSHFunction"] = { link = "Function" },
+
+    -- Rust
+    ["@lsp.typemod.enum.declaration.rust"] = { link = "Function" },
   }
   return theme
 end

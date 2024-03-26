@@ -9,7 +9,7 @@ function M.setup(c, s, p)
     Comment = { fg = c.comment, style = s.italic }, -- Any comment
     SpecialComment = { link = "Special" }, -- Any comment
     Constant = { fg = c.constant }, -- Any constant
-    String = { fg = c.string, style = s.italic }, -- Any string
+    String = { fg = c.string }, -- Any string
     Character = { fg = c.string }, -- Any character
     Number = { fg = c.number }, -- A number
     Float = { link = "Number" }, -- A floating point number
