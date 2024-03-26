@@ -1,11 +1,10 @@
--- local p = require("palette.colors")
 local M = {}
 
-function M.setup(_,_,p)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
-    IblIndent = { fg = p.purple100 },
+    IblIndent = { fg = _P.purple100 },
   }
   return theme
 end

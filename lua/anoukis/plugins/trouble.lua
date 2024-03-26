@@ -1,13 +1,12 @@
--- local c = require("palette.base").colors
 local M = {}
 
-function M.setup(c)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
     TroubleNormal = { link = "Normal" },
-    TroubleCount = { fg = c.warning.fg },
-    TroubleText = { fg = c.constant },
+    TroubleCount = { fg = _C.warning.fg },
+    TroubleText = { fg = _C.constant },
   }
 
   return theme

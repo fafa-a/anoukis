@@ -1,66 +1,63 @@
--- local c = require("palette.base").colors
--- local s = require("palette.base").style
--- local p = require("palette.colors")
 local M = {}
 
-function M.setup(c, s, p)
+function M.setup()
   local theme = {}
   theme.highlights = {
-    Comment = { fg = c.comment, style = s.italic }, -- Any comment
+    Comment = { fg = _C.comment, style = _S.italic }, -- Any comment
     SpecialComment = { link = "Special" }, -- Any comment
-    Constant = { fg = c.constant }, -- Any constant
-    String = { fg = c.string }, -- Any string
-    Character = { fg = c.string }, -- Any character
-    Number = { fg = c.number }, -- A number
+    Constant = { fg = _C.constant }, -- Any constant
+    String = { fg = _C.string }, -- Any string
+    Character = { fg = _C.string }, -- Any character
+    Number = { fg = _C.number }, -- A number
     Float = { link = "Number" }, -- A floating point number
-    Boolean = { fg = c.keyword }, -- A boolean
-    Identifier = { fg = c.fg }, -- Any variable name
-    Function = { fg = c.method, style = s.bold }, -- function name (also: methods for classes)
-    Statement = { fg = c.keyword }, -- Any statement
-    Conditional = { fg = c.keyword }, -- if, then, else, endif, switch, etc.
-    Repeat = { fg = c.keyword }, -- for, do, while, etc.
-    Label = { fg = c.label }, -- case, default, etc.
+    Boolean = { fg = _C.keyword }, -- A boolean
+    Identifier = { fg = _C.fg }, -- Any variable name
+    Function = { fg = _C.method, style = _S.bold }, -- function name (also: methods for classes)
+    Statement = { fg = _C.keyword }, -- Any statement
+    Conditional = { fg = _C.keyword }, -- if, then, else, endif, switch, etc.
+    Repeat = { fg = _C.keyword }, -- for, do, while, etc.
+    Label = { fg = _C.label }, -- case, default, etc.
     Operator = { link = "Statement" }, -- "sizeof", "+", "*", etc.
-    Keyword = { fg = c.keyword }, -- any other keyword
+    Keyword = { fg = _C.keyword }, -- any other keyword
     Exception = { link = "Statement" }, -- try, catch, throw
 
-    PreProc = { fg = c.keyword }, -- generic Preprocessor
+    PreProc = { fg = _C.keyword }, -- generic Preprocessor
     Include = { link = "PreProc" }, -- preprocessor #include
     Define = { link = "PreProc" }, -- preprocessor #define
     Macro = { link = "PreProc" }, -- same as Define
     PreCondit = { link = "PreProc" }, -- preprocessor #if, #else, #endif, etc.
 
-    StorageClass = { fg = c.keyword }, -- static, register, volatile, etc.
-    Structure = { fg = c.type }, -- struct, union, enum, etc.
+    StorageClass = { fg = _C.keyword }, -- static, register, volatile, etc.
+    Structure = { fg = _C.type }, -- struct, union, enum, etc.
     Special = { link = "String" }, -- any special symbol
-    Type = { fg = c.type }, -- int, long, char, etc.
+    Type = { fg = _C.type }, -- int, long, char, etc.
     Typedef = { link = "Type" }, -- A typedef
-    SpecialChar = { fg = c.attribute }, -- special character in a constant
-    Tag = { fg = c.tag }, -- you can use CTRL-] on this
-    Delimiter = { fg = c.punctuation }, -- character that needs attention like , or .
+    SpecialChar = { fg = _C.attribute }, -- special character in a constant
+    Tag = { fg = _C.tag }, -- you can use CTRL-] on this
+    Delimiter = { fg = _C.punctuation }, -- character that needs attention like , or .
     Debug = { link = "Special" }, -- debugging statements
 
-    Underlined = { style = s.underline }, -- text that is underlined
-    Bold = { style = s.bold }, -- text that is bold
-    Italic = { style = s.italic }, -- text that is italic
+    Underlined = { style = _S.underline }, -- text that is underlined
+    Bold = { style = _S.bold }, -- text that is bold
+    Italic = { style = _S.italic }, -- text that is italic
     -- Ignore = { fg = c.bg }, -- text that is ignored
 
-    Error = { fg = c.error.fg, bg = c.error.bg }, -- any erroneous construct
-    Todo = { fg = c.info.fg, bg = c.info.bg }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    qfLineNr = { fg = c.comment }, -- Line number for quickfix lists
-    qfFileName = { fg = c.constant }, -- File name for quickfix lists
-    htmlH1 = { fg = c.tag }, -- h1 in html
-    htmlh2 = { fg = c.tag }, -- h2 in html
-    mkdHeading = { fg = c.tag }, -- markdown headings
-    mkdCode = { fg = c.string }, -- markdown code
-    mkdCodeDelimiter = { fg = c.punctuation }, -- markdown code delimiter
-    mkdCodeStart = { fg = c.punctuation }, -- markdown code start
-    mkdCodeEnd = { fg = c.punctuation }, -- markdown code end
-    mkdLink = { fg = c.tag }, -- markdown link
+    Error = { fg = _C.error.fg, bg = _C.error.bg }, -- any erroneous construct
+    Todo = { fg = _C.info.fg, bg = _C.info.bg }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    qfLineNr = { fg = _C.comment }, -- Line number for quickfix lists
+    qfFileName = { fg = _C.constant }, -- File name for quickfix lists
+    htmlH1 = { fg = _C.tag }, -- h1 in html
+    htmlh2 = { fg = _C.tag }, -- h2 in html
+    mkdHeading = { fg = _C.tag }, -- markdown headings
+    mkdCode = { fg = _C.string }, -- markdown code
+    mkdCodeDelimiter = { fg = _C.punctuation }, -- markdown code delimiter
+    mkdCodeStart = { fg = _C.punctuation }, -- markdown code start
+    mkdCodeEnd = { fg = _C.punctuation }, -- markdown code end
+    mkdLink = { fg = _C.tag }, -- markdown link
 
     -- debugging
-    debugPC = { fg = c.warning.fg, bg = c.warning.bg }, -- used for highlighting the current line in terminal-debug
-    debugBreakpoint = { fg = c.error.fg, bg = c.error.bg }, -- used for breakpoint in terminal-debug
+    debugPC = { fg = _C.warning.fg, bg = _C.warning.bg }, -- used for highlighting the current line in terminal-debug
+    debugBreakpoint = { fg = _C.error.fg, bg = _C.error.bg }, -- used for breakpoint in terminal-debug
 
     -- diff
     -- diffAdded = {},
@@ -71,32 +68,32 @@ function M.setup(c, s, p)
     -- diffFile = {},
     -- diffLine = {},
     -- diffIndexLine = {},
-    DiffAdd = { fg = c.diff.add }, -- diff mode: Added line
-    DiffChange = { fg = c.diff.change }, -- diff mode: Changed line
-    DiffDelete = { fg = c.diff.delete }, -- diff mode: Deleted line
-    DiffText = { fg = c.diff.text }, -- diff mode: Changed text within a changed line
+    DiffAdd = { fg = _C.diff.add }, -- diff mode: Added line
+    DiffChange = { fg = _C.diff.change }, -- diff mode: Changed line
+    DiffDelete = { fg = _C.diff.delete }, -- diff mode: Deleted line
+    DiffText = { fg = _C.diff.text }, -- diff mode: Changed text within a changed line
 
-    healthError = { fg = c.health.error, bg = c.error.bg }, -- LSP error
-    healthWarning = { fg = c.health.warning, bg = c.warning.bg }, -- LSP warning
-    healthSuccess = { fg = c.health.success, bg = c.info.bg }, -- LSP success
+    healthError = { fg = _C.health.error, bg = _C.error.bg }, -- LSP error
+    healthWarning = { fg = _C.health.warning, bg = _C.warning.bg }, -- LSP warning
+    healthSuccess = { fg = _C.health.success, bg = _C.info.bg }, -- LSP success
 
     -- glyphs ???
-    GlyphPalette1 = { fg = p.red500 },
-    GlyphPalette2 = { fg = p.orange500 },
-    GlyphPalette3 = { fg = p.green500 },
-    GlyphPalette4 = { fg = p.blue500 },
-    GlyphPalette5 = { fg = p.purple500 },
-    GlyphPalette6 = { fg = p.red500 },
-    GlyphPalette7 = { fg = p.orange500 },
-    GlyphPalette8 = { fg = p.green500 },
+    GlyphPalette1 = { fg = _P.red500 },
+    GlyphPalette2 = { fg = _P.orange500 },
+    GlyphPalette3 = { fg = _P.green500 },
+    GlyphPalette4 = { fg = _P.blue500 },
+    GlyphPalette5 = { fg = _P.purple500 },
+    GlyphPalette6 = { fg = _P.red500 },
+    GlyphPalette7 = { fg = _P.orange500 },
+    GlyphPalette8 = { fg = _P.green500 },
 
     -- rainbow
-    Rainbow1 = { fg = p.red500 },
-    Rainbow2 = { fg = p.orange500 },
-    Rainbow3 = { fg = p.yellow500 },
-    Rainbow4 = { fg = p.green500 },
-    Rainbow5 = { fg = p.blue500 },
-    Rainbow6 = { fg = p.purple500 },
+    Rainbow1 = { fg = _P.red500 },
+    Rainbow2 = { fg = _P.orange500 },
+    Rainbow3 = { fg = _P.yellow500 },
+    Rainbow4 = { fg = _P.green500 },
+    Rainbow5 = { fg = _P.blue500 },
+    Rainbow6 = { fg = _P.purple500 },
   }
 
   return theme

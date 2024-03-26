@@ -1,14 +1,12 @@
--- local c = require("palette.base").colors
-
 local M = {}
 
-function M.setup(c)
+function M.setup()
   local theme = {}
 
   -- FIXME: Dont work
   theme.highlights = {
-    HarpoonWindow = { fg = c.fg, bg = c.error.bg },
-    HarpoonBorder = { fg = c.error.fg },
+    HarpoonWindow = { fg = _C.fg, bg = _C.error.bg },
+    HarpoonBorder = { fg = _C.error.fg },
   }
 
   return theme

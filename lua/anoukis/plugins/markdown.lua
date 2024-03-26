@@ -1,24 +1,21 @@
--- local c = require("palette.base").colors
--- local s = require("palette.base").style
--- local p = require("palette.colors")
 local M = {}
 
-function M.setup(_,s,p)
+function M.setup()
   local theme = {}
 
   --TODO i dont know if this works
 
   theme.highlights = {
-    markdownHeadingDelimiter = { fg = p.purple900 , style = s.bold },
-    markdownCode = { fg = p.purple800 },
-    markdownCodeBlock = { fg = p.purple700 },
-    markdownLinkText = { fg = p.purple600, style = s.italic },
-    markdownH1 = { fg = p.purple900, style = s.bold },
-    markdownH2 = { fg = p.purple800, style = s.bold },
-    markdownH3 = { fg = p.purple700, style = s.bold },
-    markdownH4 = { fg = p.purple600, style = s.bold },
-    markdownH5 = { fg = p.purple500, style = s.bold },
-    markdownH6 = { fg = p.purple400, style = s.bold },
+    markdownHeadingDelimiter = { fg = _P.purple900 , style = _S.bold },
+    markdownCode = { fg = _P.purple800 },
+    markdownCodeBlock = { fg = _P.purple700 },
+    markdownLinkText = { fg = _P.purple600, style = _S.italic },
+    markdownH1 = { fg = _P.purple900, style = _S.bold },
+    markdownH2 = { fg = _P.purple800, style = _S.bold },
+    markdownH3 = { fg = _P.purple700, style = _S.bold },
+    markdownH4 = { fg = _P.purple600, style = _S.bold },
+    markdownH5 = { fg = _P.purple500, style = _S.bold },
+    markdownH6 = { fg = _P.purple400, style = _S.bold },
   }
 
   return theme

@@ -1,25 +1,21 @@
--- local c = require("palette.base").colors
--- local s = require("palette.base").style
--- local p = require("palette.colors")
-
 local M = {}
 
-function M.setup(c, s, p)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
-    NeoTreeRootName = { fg = c.constant, style = s.bold },
-    NeoTreeGitAdded = { fg = c.git.added },
-    NeoTreeGitConflict = { fg = c.git.deleted },
-    NeoTreeGitDeleted = { fg = c.git.deleted },
-    NeoTreeGitIgnored = { fg = c.comment },
-    NeoTreeGitModified = { fg = c.git.changed },
-    NeoTreeGitUnstaged = { fg = p.red300 },
-    NeoTreeGitStaged = { fg = c.git.added },
-    NeoTreeGitUntracked = { fg = p.rose300 },
-    NeoTreeIndentMarker = { fg = p.purple100 },
-    NeoTreeSymbolicLinkTarget = { fg = p.purple700 },
-    NeoTreeTitleBar = { fg = p.slate100, bg = p.slate800 },
+    NeoTreeRootName = { fg = _C.constant, style = _S.bold },
+    NeoTreeGitAdded = { fg = _C.git.added },
+    NeoTreeGitConflict = { fg = _C.git.deleted },
+    NeoTreeGitDeleted = { fg = _C.git.deleted },
+    NeoTreeGitIgnored = { fg = _C.comment },
+    NeoTreeGitModified = { fg = _C.git.changed },
+    NeoTreeGitUnstaged = { fg = _P.red300 },
+    NeoTreeGitStaged = { fg = _C.git.added },
+    NeoTreeGitUntracked = { fg = _P.rose300 },
+    NeoTreeIndentMarker = { fg = _P.purple100 },
+    NeoTreeSymbolicLinkTarget = { fg = _P.purple700 },
+    NeoTreeTitleBar = { fg = _P.slate100, bg = _P.slate800 },
 		NeoTreeFloatBorder = { link = "FloatBorder" },
 		NeoTreeFloatTitle = { link = "FloatTitle" },
 

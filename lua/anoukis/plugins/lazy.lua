@@ -1,18 +1,15 @@
--- local c = require("palette.base").colors
--- local s = require("palette.base").style
--- local p = require("palette.colors")
 local M = {}
 
-function M.setup(c, _, p)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
     LazyNormal = { link = "Normal" },
-    LazyButton = { bg = p.gray200 },
-    LazyComment = { fg = p.gray500 },
-    LazyCommit = { fg = p.slate500 },
+    LazyButton = { bg = _P.gray200 },
+    LazyComment = { fg = _P.gray500 },
+    LazyCommit = { fg = _P.slate500 },
     LazyCommitIssue = { link = "WarningMsg" },
-    LazyCommitScope = { fg = c.constant },
+    LazyCommitScope = { fg = _C.constant },
     LazyCommitType = { link = "LazyCommitScope" },
     LazyDimmed = { link = "LazyCommitScope" },
     LazyProp = { link = "LazyCommitScope" },

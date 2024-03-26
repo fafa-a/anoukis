@@ -1,7 +1,6 @@
--- local c = require("palette.base").colors
 local M = {}
 
-function M.setup(c)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
@@ -21,7 +20,7 @@ function M.setup(c)
     ["@lsp.type.property"] = { link = "@property" },
     ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
     ["@lsp.type.typeAlias"] = { link = "@type.definition" },
-    ["@lsp.type.unresolvedReference"] = { fg = c.error.fg },
+    ["@lsp.type.unresolvedReference"] = { fg = _C.error.fg },
     ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
     ["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
     ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },

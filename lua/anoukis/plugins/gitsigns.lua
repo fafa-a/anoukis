@@ -1,21 +1,19 @@
--- local c = require("palette.base").colors
-
 local M = {}
 
-function M.setup(c)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
-    GitSignsAdd = { fg = c.gitSigns.add },
+    GitSignsAdd = { fg = _C.gitSigns.add },
     GitSignsAddNr = { link = "GitSignsAdd" },
     GitSignsAddLn = { link = "GitSignsAdd" },
-    GitSignsChange = { fg = c.gitSigns.change },
+    GitSignsChange = { fg = _C.gitSigns.change },
     GitSignsChangeNr = { link = "GitSignsChange" },
     GitSignsChangeLn = { link = "GitSignsChange" },
-    GitSignsDelete = { fg = c.gitSigns.delete },
+    GitSignsDelete = { fg = _C.gitSigns.delete },
     GitSignsDeleteNr = { link = "GitSignsDelete" },
     GitSignsDeleteLn = { link = "GitSignsDelete" },
-    GitSignsCurrentLineBlame = { fg = c.comment },
+    GitSignsCurrentLineBlame = { fg = _C.comment },
     GirSignsAddPreview = { link = "DiffAdd" },
     GitSignsDeletePreview = { link = "DiffDelete" },
   }

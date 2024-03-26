@@ -1,23 +1,20 @@
--- local c = require("palette.base").colors
--- local s = require("palette.base").style
--- local p = require("palette.colors")
 local M = {}
 
-function M.setup(c, s, p)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
-    VimwikiHeader1 = { fg = c.constant, style = s.bold },
+    VimwikiHeader1 = { fg = _C.constant, style = _S.bold },
     VimwikiHeader2 = { link = "VimwikiHeader1" },
     VimwikiHeader3 = { link = "VimwikiHeader1" },
     vimwikiHeader4 = { link = "VimwikiHeader1" },
     VimwikiHeader5 = { link = "VimwikiHeader1" },
     VimwikiHeader6 = { link = "VimwikiHeader1" },
-    VimwikiLink = { fg = p.slate500, style = s.underline },
+    VimwikiLink = { fg = _P.slate500, style = _S.underline },
     VimwikiHeaderChar = { link = "VimwikiHeader1" },
-    VimwikiHR = { fg = c.constant },
-    VimwikiList = { fg = c.constant },
-    VimwikiTag = { fg = c.constant },
+    VimwikiHR = { fg = _C.constant },
+    VimwikiList = { fg = _C.constant },
+    VimwikiTag = { fg = _C.constant },
   }
 
   return theme

@@ -1,29 +1,27 @@
--- local c = require("palette.base").colors
--- local s = require("palette.base").style
 local M = {}
 
-function M.setup( c, s)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
-    CmpItemAbbrDeprecated = { fg = c.error.fg, bg = c.error.bg },
-    CmpItemAbbrMatch = { fg = c.constant, style = s.bold },
-    CmpItemAbbrMatchFuzzy = { fg = c.tag, style = s.bold },
+    CmpItemAbbrDeprecated = { fg = _C.error.fg, bg = _C.error.bg },
+    CmpItemAbbrMatch = { fg = _C.constant, style = _S.bold },
+    CmpItemAbbrMatchFuzzy = { fg = _C.tag, style = _S.bold },
 
     -- CmpItemMenu = { fg = c.comment, bg = c.error.bg },
     -- CmpItemAbbr = { fg = c.fg, bg = c.bg },
 
-    CmpItemKind = { fg = c.tag },
-    CmpItemKindField = { fg = c.constant },
-    CmpItemKindProperty = { fg = c.constant },
-    CmpItemKindEvent = { fg = c.constant },
+    CmpItemKind = { fg = _C.tag },
+    CmpItemKindField = { fg = _C.constant },
+    CmpItemKindProperty = { fg = _C.constant },
+    CmpItemKindEvent = { fg = _C.constant },
 
-    CmpItemKindText = { fg = c.tag },
+    CmpItemKindText = { fg = _C.tag },
     CmpItemKindEnum = { link = "Type" },
     CmpItemKindKeyword = { link = "Keyword" },
 
     CmpItemKindConstant = { link = "Constant" },
-    CmpItemKindConstructor = { fg = c.method },
+    CmpItemKindConstructor = { fg = _C.method },
     CmpItemKindReference = { link = "Special" },
 
     CmpItemKindFunction = { link = "CmpItemKindConstructor" },

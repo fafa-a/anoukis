@@ -1,10 +1,7 @@
--- local c = require("palette.base").colors
--- local s = require("palette.base").style
--- local p = require("palette.colors")
 local M = {}
 -- Ref: https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md
 
-function M.setup(c, s, p)
+function M.setup()
   local theme = {}
   theme.highlights = {
     -- identifiers
@@ -21,7 +18,7 @@ function M.setup(c, s, p)
     ["@label"] = { link = "Label" }, -- For labels: label: in C and :label: in Lua.
 
     --literals
-    ["@string"] = { fg = c.string, style = s.italic }, -- For strings.
+    ["@string"] = { fg = _C.string, style = _S.italic }, -- For strings.
     -- ["@string.regexp"] = {link = "String"}, -- For regexes.
     -- ["@string.escape"] = {link = "String"}, -- For escape characters within a string.
     -- ["@string.special"] = {link = "String"}, -- other special strings (e.g. dates)
@@ -86,14 +83,14 @@ function M.setup(c, s, p)
     ["@markup"] = { link = "Comment" }, -- For strings considerated text in a markup language.
     ["@markup.strong"] = { link = "Bold" }, -- bold
     ["@markup.italic"] = { link = "Italic" }, -- italic
-    ["@markup.strikethrough"] = { style = s.strikethrough }, -- strikethrough text
+    ["@markup.strikethrough"] = { style = _S.strikethrough }, -- strikethrough text
     ["@markup.underline"] = { link = "Underlined" }, -- underlined text
-    ["@markup.heading"] = { style = s.bold }, -- titles like: # Example
+    ["@markup.heading"] = { style = _S.bold }, -- titles like: # Example
     ["@markup.math"] = { link = "Comment" }, -- math environments (e.g. `$ ... $` in LaTeX)
     ["@markup.environment"] = { link = "Comment" }, -- text environments of markup languages
     ["@markup.environment.name"] = { link = "Comment" }, -- text indicating the type of an environment
-    ["@markup.link"] = { fg = p.purple400, style = s.underline }, -- text references, footnotes, citations, etc.
-    ["@markup.link.url"] = { fg = p.purple400, style = s.underline }, -- urls, links and emails
+    ["@markup.link"] = { fg = _P.purple400, style = _S.underline }, -- text references, footnotes, citations, etc.
+    ["@markup.link.url"] = { fg = _P.purple400, style = _S.underline }, -- urls, links and emails
     ["@markup.raw"] = { link = "Comment" }, -- used for inline code in markdown and for doc in python (""")
     ["@markup.list"] = { link = "Special" }, -- todo notes
     ["@markup.list.checked"] = { link = "Special" }, -- todo notes

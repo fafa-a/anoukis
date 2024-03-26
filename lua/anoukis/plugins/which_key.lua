@@ -1,17 +1,16 @@
--- local c = require("palette.base").colors
 local M = {}
 
-function M.setup(c)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
     WhichKey = { link = "NormalFloat" },
     WhichKeyBorder = { link = "FloatBorder" },
 
-    WhichKeyGroup = { fg = c.constant },
-    WhichKeySeparator = { fg = c.constant },
-    WhichKeyDesc = { fg = c.constant },
-    WhichKeyValue = { fg = c.constant },
+    WhichKeyGroup = { fg = _C.constant },
+    WhichKeySeparator = { fg = _C.constant },
+    WhichKeyDesc = { fg = _C.constant },
+    WhichKeyValue = { fg = _C.constant },
   }
 
   return theme

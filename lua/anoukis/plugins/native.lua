@@ -1,10 +1,6 @@
--- local c = require("palette.base").colors
--- local s = require("palette.base").style
--- local p = require("palette.colors")
-
 local M = {}
 
-function M.setup(c, s)
+function M.setup()
   local theme = {}
 
   theme.highlights = {
@@ -13,10 +9,10 @@ function M.setup(c, s)
     DiagnosticInfo = { link = "Todo" }, -- Used as the mantle highlight group. Other Diagnostic highlights link to this by default
     DiagnosticHint = { link = "Todo" }, -- Used as the mantle highlight group. Other Diagnostic highlights link to this by default
 
-    DiagnosticSignError = { fg = c.error.fg }, -- Used for "Error" signs in sign column
-    DiagnosticSignWarn = { fg = c.warning.fg }, -- Used for "Warn" signs in sign column
-    DiagnosticSignInfo = { fg = c.info.fg }, -- Used for "Info" signs in sign column
-    DiagnosticSignHint = { fg = c.info.fg }, -- Used for "Hint" signs in sign column
+    DiagnosticSignError = { fg = _C.error.fg }, -- Used for "Error" signs in sign column
+    DiagnosticSignWarn = { fg = _C.warning.fg }, -- Used for "Warn" signs in sign column
+    DiagnosticSignInfo = { fg = _C.info.fg }, -- Used for "Info" signs in sign column
+    DiagnosticSignHint = { fg = _C.info.fg }, -- Used for "Hint" signs in sign column
 
     DiagnosticVirtualTextError = { link = "Error" }, -- Used for "Error" diagnostic virtual text
     DiagnosticVirtualTextWarn = { link = "WarningMsg" }, -- Used for "Warn" diagnostic virtual text
@@ -49,16 +45,16 @@ function M.setup(c, s)
     LspDiagnosticsVirtualTextInformation = { link = "Todo" }, -- Used for "Info" diagnostic virtual text
     LspDiagnosticsVirtualTextHint = { link = "Todo" }, -- Used for "Hint" diagnostic virtual text
 
-    LspDiagnosticsUnderlineError = { style = s.underline, sp = c.error.fg }, -- Used to underline "Error" diagnostics
-    LspDiagnosticsUnderlineWarning = { style = s.underline, sp = c.warning.fg }, -- Used to underline "Warning" diagnostics
-    LspDiagnosticsUnderlineInformation = { style = s.underline, sp = c.info.fg }, -- Used to underline "Information" diagnostics
-    LspDiagnosticsUnderlineHint = { style = s.underline, sp = c.info.fg }, -- Used to underline "Hint" diagnostics
+    LspDiagnosticsUnderlineError = { style = _S.underline, sp = _C.error.fg }, -- Used to underline "Error" diagnostics
+    LspDiagnosticsUnderlineWarning = { style = _S.underline, sp = _C.warning.fg }, -- Used to underline "Warning" diagnostics
+    LspDiagnosticsUnderlineInformation = { style = _S.underline, sp = _C.info.fg }, -- Used to underline "Information" diagnostics
+    LspDiagnosticsUnderlineHint = { style = _S.underline, sp = _C.info.fg }, -- Used to underline "Hint" diagnostics
 
     LspReferenceText = { link = "NormalFloat" }, -- Used for highlighting "text" references
     LspReferenceRead = { link = "NormalFloat" }, -- Used for highlighting "read" references
     LspReferenceWrite = { link = "NormalFloat" }, -- Used for highlighting "write" references
-    LspCodeLens = { fg = c.comment }, -- Used to highlight the virtual text of the codelens
-    LspInlineHint = { fg = c.comment }, -- Used to highlight the virtual text for the inline hint
+    LspCodeLens = { fg = _C.comment }, -- Used to highlight the virtual text of the codelens
+    LspInlineHint = { fg = _C.comment }, -- Used to highlight the virtual text for the inline hint
     LspInfoBorder = { link = "FloatBorder" }, -- Used to render "info" diagnostic border
   }
 
