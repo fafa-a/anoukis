@@ -18,7 +18,7 @@ function M.setup()
     ["@label"] = { link = "Label" }, -- For labels: label: in C and :label: in Lua.
 
     --literals
-    ["@string"] = { fg = _C.string, style = _S.italic }, -- For strings.
+    ["@string"] = { link = "String" }, -- For strings.
     -- ["@string.regexp"] = {link = "String"}, -- For regexes.
     -- ["@string.escape"] = {link = "String"}, -- For escape characters within a string.
     -- ["@string.special"] = {link = "String"}, -- other special strings (e.g. dates)
@@ -154,7 +154,7 @@ function M.setup()
 
     -- Rust
     ["@lsp.typemod.enum.declaration.rust"] = { link = "Function" },
-
+    ["@lsp.typemod.method.defaultLibrary.rust"] = { link = "Function" },
   }
   return theme
 end

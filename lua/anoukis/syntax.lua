@@ -2,23 +2,25 @@ local M = {}
 
 function M.setup()
   local theme = {}
+  local styles = _O.styles
+
   theme.highlights = {
-    Comment = { fg = _C.comment, style = _S.italic }, -- Any comment
+    Comment = { fg = _C.comment,style = styles.comments }, -- Any comment
     SpecialComment = { link = "Special" }, -- Any comment
-    Constant = { fg = _C.constant }, -- Any constant
-    String = { fg = _C.string }, -- Any string
-    Character = { fg = _C.string }, -- Any character
-    Number = { fg = _C.number }, -- A number
+    Constant = { fg = _C.constant, style = styles.variables }, -- Any constant
+    String = { fg = _C.string, style = styles.strings }, -- Any string
+    Character = { link = "String" }, -- Any character
+    Number = { fg = _C.number, style = styles.numbers }, -- A number
     Float = { link = "Number" }, -- A floating point number
-    Boolean = { fg = _C.keyword }, -- A boolean
+    Boolean = { fg = _C.keyword, style = styles.booleans }, -- A boolean
     Identifier = { fg = _C.fg }, -- Any variable name
-    Function = { fg = _C.method, style = _S.bold }, -- function name (also: methods for classes)
-    Statement = { fg = _C.keyword }, -- Any statement
-    Conditional = { fg = _C.keyword }, -- if, then, else, endif, switch, etc.
+    Function = { fg = _C.method, style = styles.functions }, -- function name (also: methods for classes)
+    Statement = { fg = _C.keyword, style = styles.operators }, -- Any statement
+    Conditional = { fg = _C.keyword, style = styles.conditionals }, -- if, then, else, endif, switch, etc.
     Repeat = { fg = _C.keyword }, -- for, do, while, etc.
     Label = { fg = _C.label }, -- case, default, etc.
     Operator = { link = "Statement" }, -- "sizeof", "+", "*", etc.
-    Keyword = { fg = _C.keyword }, -- any other keyword
+    Keyword = { fg = _C.keyword, style = styles.keywords }, -- any other keyword
     Exception = { link = "Statement" }, -- try, catch, throw
 
     PreProc = { fg = _C.keyword }, -- generic Preprocessor
@@ -30,7 +32,7 @@ function M.setup()
     StorageClass = { fg = _C.keyword }, -- static, register, volatile, etc.
     Structure = { fg = _C.type }, -- struct, union, enum, etc.
     Special = { link = "String" }, -- any special symbol
-    Type = { fg = _C.type }, -- int, long, char, etc.
+    Type = { fg = _C.type, style = styles.types }, -- int, long, char, etc.
     Typedef = { link = "Type" }, -- A typedef
     SpecialChar = { fg = _C.attribute }, -- special character in a constant
     Tag = { fg = _C.tag }, -- you can use CTRL-] on this
