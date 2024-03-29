@@ -53,6 +53,10 @@ function M.load()
   local sy = syntax.setup()
   terminal.setup()
 
+  if vim.g.colors_name then
+    vim.cmd("hi clear")
+  end
+
   vim.o.termguicolors = true
   vim.g.colors_name = "anoukis"
 
