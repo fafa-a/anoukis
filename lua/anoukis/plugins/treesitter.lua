@@ -95,6 +95,7 @@ function M.setup()
     ["@markup.list"] = { link = "Special" }, -- todo notes
     ["@markup.list.checked"] = { link = "Special" }, -- todo notes
     ["@markup.list.unchecked"] = { link = "Special" }, -- todo notes
+    ["@markup.raw.block.vimdoc"] = { fg = _C.tag },
 
     -- Diff
     ["@diff.plus"] = { link = "diffAdded" }, -- added text (for diff files)
@@ -153,6 +154,7 @@ function M.setup()
 
     -- Rust
     ["@lsp.typemod.enum.declaration.rust"] = { link = "Function" },
+
   }
   return theme
 end
