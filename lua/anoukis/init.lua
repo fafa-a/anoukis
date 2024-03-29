@@ -85,4 +85,10 @@ function M.load()
   })
 end
 
+function M.setup(options)
+  local default_options = require("anoukis.config").options
+  options = options or {}
+  _O = vim.tbl_deep_extend("force", {}, default_options, options)
+end
+
 return M
