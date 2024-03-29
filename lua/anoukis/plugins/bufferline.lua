@@ -4,7 +4,7 @@ function M.setup()
   local theme = {}
 
   local bg_highlight = _P.purple100
-  local active_bg = _C.bg
+  local active_bg = _O.transparent_background and _S.none or _C.bg
   local inactive_bg = _P.purple100
 
   local separator_fg = _P.slate900

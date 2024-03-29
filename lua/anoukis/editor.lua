@@ -14,7 +14,7 @@ function M.setup()
     -- CursorColumn = { bg = c.cursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine = { bg = _C.cursorLine }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if forecrust (ctermfg OR guifg) is not set.
     Directory = { fg = _C.punctuation }, -- directory names (and other special names in listings)
-    EndOfBuffer = { bg = _C.bg }, -- filler lines (~) after the end of the buffer.  By default,-- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|. this is highlighted like |hl-NonText|.
+    EndOfBuffer = { bg = _O.transparent_background and _S.none or _C.bg }, -- filler lines (~) after the end of the buffer.  By default,-- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|. this is highlighted like |hl-NonText|.
     ErrorMsg = { fg = _C.error.fg, bg = _C.error.bg }, -- error messages on the command line
     VertSplit = { fg = _P.slate700 }, -- the column separating vertically split windows
     Folded = { fg = _C.tag, bg = _C.punctuation }, -- line used for closed folds
@@ -29,11 +29,11 @@ function M.setup()
     -- MsgSeparator = { link = "Normal" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = _P.blue500 }, -- |more-prompt|
     NonText = { fg = _P.slate100 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).  See also |hl-EndOfBuffer|.
-    Normal = { fg = _C.fg, bg = _C.bg }, -- normal text
-    NorlmalNC = { link = "Normal" }, -- normal text in non-current windows
+    Normal = { fg = _C.fg, bg = _O.transparent_background and _S.none or _C.bgFloat }, -- normal text
+    NorlmalNC = { fg = _C.fg, bg = _C.error.bg }, -- normal text in non-current windows
     -- NormalSB = { link = "Normal" }, -- normal text in non-current windows
-    NormalFloat = { fg = _C.fg, bg = _C.bgFloat }, -- Normal text in floating windows
-    FloatBorder = { fg = _P.slate900, bg = _C.bg }, -- Border of floating windows
+    NormalFloat = { fg = _C.fg, bg = (_O.transparent_background and vim.o.winblend )and _S.none or _C.bgFloat }, -- Normal text in floating windows
+    FloatBorder = { fg = _P.slate900 }, -- Border of floating windows
     FloatTitle = { fg = _C.constant, style = _S.bold }, -- Title of floating windows
     Pmenu = { fg = _C.fg, bg = _P.gray100, blend = 0 }, -- Popup menu: normal item.
     PmenuSel = { bg = _P.gray300 }, -- Popup menu: selected item.

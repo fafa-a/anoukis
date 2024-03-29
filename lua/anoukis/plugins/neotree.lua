@@ -16,7 +16,7 @@ function M.setup()
     NeoTreeIndentMarker = { fg = _P.purple100 },
     NeoTreeSymbolicLinkTarget = { fg = _P.purple700 },
     NeoTreeTitleBar = { fg = _P.slate100, bg = _P.slate800 },
-		NeoTreeFloatBorder = { link = "FloatBorder" },
+		NeoTreeFloatBorder = {link = "FloatBorder"},
 		NeoTreeFloatTitle = { link = "FloatTitle" },
 
     -- TODO: Add more highlights
