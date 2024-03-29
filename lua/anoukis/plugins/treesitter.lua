@@ -112,13 +112,15 @@ function M.setup()
 
     -- languages
     -- css
-    ["@property.css"] = { link = "Constant" },
     ["@property.id.css"] = { link = "Constant" },
+    ["@operator.css"] = { link = "Constant" },
     ["@property.class.css"] = { link = "Constant" },
-    ["@type.css"] = { link = "Type" },
-    ["@type.tag.css"] = { link = "Type" },
+    ["@type.css"] = { link = "Constant" },
+    ["@type.tag.css"] = { link = "Constant" },
     ["@string.plain.css"] = { link = "String" },
-    ["@number.css"] = { link = "Number" },
+    ["@property.css"] = { link = "Statement" },
+    ["@number.css"] = { fg = _P.purple500 },
+    ["@punctuation.bracket.css"] = { fg = _P.slate950 },
 
     -- toml
     ["@property.toml"] = { link = "Constant" }, -- Differentiates between string and properties
