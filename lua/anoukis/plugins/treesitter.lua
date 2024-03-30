@@ -157,6 +157,19 @@ function M.setup()
     -- Rust
     ["@lsp.typemod.enum.declaration.rust"] = { link = "Function" },
     ["@lsp.typemod.method.defaultLibrary.rust"] = { link = "Function" },
+
+    -- Svelte
+    ["@tag.svelte"] = { fg = _P.slate950 },
+    ["@tag.attribute.svelte"] = { link = "Tag" },
+    ["@tag.delimiter.svelte"] = { fg = _P.slate950 },
+    ["@string.svelte"] = { link = "Constant" },
+    ["@variable.svelte"] = { link = "Constant" },
+    ["@none.svelte"] = { link = "Constant" },
+    ["@lsp.typemod.variable.local.svelte"] = { fg = _C.constant, style = _S.bold },
+    ["@string.special.url.svelte"] = { fg = _P.slate600 },
+    ["@property.svelte"] = { link = "Constant" },
+    ["@function.svelte"] = { link = "Function" },
+    ["@markup.heading.svelte"] = { fg = _P.slate600 },
   }
   return theme
 end
