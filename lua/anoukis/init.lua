@@ -50,7 +50,6 @@ local function get_plugin_directory()
 end
 
 function M.load()
-  print("load")
   _P = require("palette.colors")
   _C = require("palette.base").colors
   _S = require("palette.base").style
@@ -92,7 +91,6 @@ function M.load()
 end
 
 function M.setup(options)
-  print("setup")
   local default_options = require("anoukis.config").options
   options = options or {}
   _O = vim.tbl_deep_extend("force", {}, default_options, options)

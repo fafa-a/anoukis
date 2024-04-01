@@ -11,10 +11,7 @@ end
 local cursor_line_bg
 if success then
   cursor_line_bg = result
-  print("cursor_line_bg: " .. cursor_line_bg)
 end
-
-print(vim.inspect(cursor_line_bg))
 
 local colors = {
   attribute = _P.slate400,
