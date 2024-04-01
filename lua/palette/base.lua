@@ -1,60 +1,86 @@
-local p = require("palette.colors")
+
+local success, result = pcall(function()
+  return require("anoukis.util").darken_color(_P[_VARIANT .. 25], 0.95)
+end)
+
+if not success then
+  vim.notify = require("notify")
+  vim.notify("An error occurred: " .. result, vim.log.levels.ERROR, { title = "Anoukis setup" })
+end
+
+local cursor_line_bg
+if success then
+  cursor_line_bg = result
+  print("cursor_line_bg: " .. cursor_line_bg)
+end
+
+print(vim.inspect(cursor_line_bg))
 
 local colors = {
-  attribute = p.slate400,
-  bg = p.purple25,
-  bgFloat = p.purple25,
-  comment = p.slate300,
-  constant = p.slate950,
-  cursor = p.purple500,
-  cursorLine = p.purple75,
+  attribute = _P.slate400,
+  bg = _VARIANT and _P[_VARIANT .. 25] or _P.purple25,
+  bgFloat = _VARIANT and _P[_VARIANT .. 25] or _P.purple25,
+  comment = _P.slate300,
+  constant = _P.slate950,
+  cursearch = {
+    fg = _VARIANT and _P[_VARIANT .. 25] or _P.purple25,
+    bg = _VARIANT and _P[_VARIANT .. 800] or _P.purple800,
+  },
+  cursor = _VARIANT and _P[_VARIANT .. 500] or _P.purple500,
+  cursorLine = _VARIANT and cursor_line_bg or _P.purple75,
   diff = {
-    add = p.green500,
-    change = p.blue500,
-    delete = p.red500,
-    text = p.slate800,
+    add = _P.green500,
+    change = _P.blue500,
+    delete = _P.red500,
+    text = _P.slate800,
   },
   error = {
-    fg = p.red500,
-    bg = p.red200,
+    fg = _P.red500,
+    bg = _P.red200,
   },
-  fg = p.slate800,
+  fg = _P.slate800,
   git = {
-    added = p.green500,
-    changed = p.blue500,
-    deleted = p.red500,
+    added = _P.green500,
+    changed = _P.blue500,
+    deleted = _P.red500,
   },
   gitSigns = {
-    add = p.green700,
-    change = p.blue700,
-    delete = p.red700,
+    add = _P.green700,
+    change = _P.blue700,
+    delete = _P.red700,
   },
   health = {
-    error = p.red500,
-    warning = p.orange500,
-    success = p.green500,
+    error = _P.red500,
+    warning = _P.orange500,
+    success = _P.green500,
   },
   info = {
-    fg = p.blue500,
-    bg = p.blue200,
+    fg = _P.blue500,
+    bg = _P.blue200,
   },
-  keyword = p.slate500,
-  label = p.slate400,
-  method = p.slate800,
-  number = p.slate800,
-  parameter = p.slate400,
-  property = p.slate400,
-  punctuation = p.slate400,
-  string = p.slate800,
-  tag = p.slate500,
-  type = p.slate600,
+  keyword = _P.slate500,
+  label = _P.slate400,
+  method = _P.slate800,
+  number = _P.slate800,
+  parameter = _P.slate400,
+  property = _P.slate400,
+  punctuation = _P.slate400,
+  search = {
+    fg = _VARIANT and _P[_VARIANT .. 25] or _P.purple25,
+    bg = _VARIANT and _P[_VARIANT .. 500] or _P.purple500,
+  },
+  string = _P.slate800,
+  tag = _P.slate500,
+  type = _P.slate600,
+  visual = {
+    fg = _P.slate800,
+    bg = _VARIANT and _P[_VARIANT .. 300] or _P.purple300,
+  },
   warning = {
-    fg = p.orange500,
-    bg = p.orange200,
+    fg = _P.orange500,
+    bg = _P.orange200,
   },
 }
-
-
 
 local style = {
   bold = "bold",

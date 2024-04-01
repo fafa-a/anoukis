@@ -14,7 +14,7 @@ function M.setup()
     -- CursorColumn = { bg = c.cursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine = { bg = _C.cursorLine }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if forecrust (ctermfg OR guifg) is not set.
     Directory = { fg = _C.punctuation }, -- directory names (and other special names in listings)
-    EndOfBuffer = { bg = _O.transparent_background and _S.none or _C.bg }, -- filler lines (~) after the end of the buffer.  By default,-- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|. this is highlighted like |hl-NonText|.
+    EndOfBuffer = { bg = _S.none }, -- filler lines (~) after the end of the buffer.  By default,-- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|. this is highlighted like |hl-NonText|.
     ErrorMsg = { fg = _C.error.fg, bg = _C.error.bg }, -- error messages on the command line
     VertSplit = { fg = _P.slate700 }, -- the column separating vertically split windows
     Folded = { fg = _C.tag, bg = _C.punctuation }, -- line used for closed folds
@@ -41,9 +41,9 @@ function M.setup()
     PmenuThumb = { bg = _P.gray950 }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = _P.blue500 }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { fg = _C.bg, bg = _P.blue500 }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search = { fg = _C.bg, bg = _P.purple500 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    Search = { fg = _C.search.fg, bg = _C.search.bg }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     IncSearch = { link = "Search" }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    CurSearch = { fg = _C.bg, bg = _P.purple800 }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
+    CurSearch = { fg = _C.cursearch.fg, bg = _C.cursearch.bg }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     SpecialKey = { fg = _C.attribute }, -- Unprintable characters: text displayed differently from what it really is.
     -- FIXME highlight any word as an error
     SpellBad = { fg = _C.error.fg, bg = _C.error.bg, style = _S.undercurl }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
@@ -56,7 +56,7 @@ function M.setup()
     TabLineFill = { fg = _C.constant, bg = _C.bg }, -- tab pages line, where there are no labels
     TabLineSel = { fg = _P.purple500, bg = _P.red200, style = _S.underline }, -- tab pages line, active tab page label
     Title = { fg = _C.fg, style = _S.bold }, -- titles for output from ":set all", ":autocmd" etc.
-    Visual = { fg = _C.fg, bg = _P.purple300 }, -- Visual mode selection
+    Visual = { fg = _C.visual.fg, bg = _C.visual.bg }, -- Visual mode selection
     VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg = { fg = _C.warning.fg, bg = _C.warning.bg }, -- warning messages
     Whitespace = { fg = _P.slate100 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'

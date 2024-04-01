@@ -2,7 +2,7 @@ local M = {}
 
 local default_options = {
   transparent_background = false,
-  colors = {},
+  variants = "purple",
   styles = {
     comments = { "italic" },
     conditionals = {},
@@ -12,7 +12,7 @@ local default_options = {
     variables = {},
     numbers = {},
     booleans = {},
-    types =  {} ,
+    types = {},
     operators = {},
   },
 }

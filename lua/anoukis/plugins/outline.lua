@@ -1,10 +1,14 @@
 local M = {}
+local variant = _O.variants
 
 function M.setup()
   local theme = {}
 
   theme.highlights = {
-    OutlineCurrent = { fg = _P.purple500, bg = _P.purple200 },
+    OutlineCurrent = {
+      fg = variant and _P[variant .. 500] or _P.purple500,
+      bg = variant and _P[variant .. 200] or _P.purple200,
+    },
     OutlineGuides = { fg = _P.slate400 },
     OutlineFoldMarker = { fg = _C.constant, style = _S.bold },
     OutlineDetails = { fg = _P.slate500 },

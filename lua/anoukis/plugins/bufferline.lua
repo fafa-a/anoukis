@@ -1,11 +1,12 @@
 local M = {}
+local variant = _O.variants
 
 function M.setup()
   local theme = {}
 
-  local bg_highlight = _P.purple100
+  local bg_highlight = variant and _P[variant .. 100] or _P.purple100
   local active_bg = _O.transparent_background and _S.none or _C.bg
-  local inactive_bg = _P.purple100
+  local inactive_bg = variant and _P[variant .. 100] or _P.purple100
 
   local separator_fg = _P.slate900
 

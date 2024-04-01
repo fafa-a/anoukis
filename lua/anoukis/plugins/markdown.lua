@@ -6,7 +6,7 @@ function M.setup()
   --TODO i dont know if this works
 
   theme.highlights = {
-    markdownHeadingDelimiter = { fg = _P.purple900 , style = _S.bold },
+    markdownHeadingDelimiter = { fg = _P.purple900, style = _S.bold },
     markdownCode = { fg = _P.purple800 },
     markdownCodeBlock = { fg = _P.purple700 },
     markdownLinkText = { fg = _P.purple600, style = _S.italic },

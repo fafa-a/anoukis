@@ -1,4 +1,5 @@
 local M = {}
+local variant = _O.variants
 -- Ref: https://github.com/nvim-treesitter/nvim-treesitter/blob/master/CONTRIBUTING.md
 
 function M.setup()
@@ -119,7 +120,7 @@ function M.setup()
     ["@type.tag.css"] = { link = "Constant" },
     ["@string.plain.css"] = { link = "String" },
     ["@property.css"] = { link = "Statement" },
-    ["@number.css"] = { fg = _P.purple500 },
+    ["@number.css"] = { fg = variant and _P[variant .. 500] or _P.purple500 },
     ["@punctuation.bracket.css"] = { fg = _P.slate950 },
 
     -- toml

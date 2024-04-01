@@ -12,7 +12,7 @@ function M.setup()
     NeoTreeGitModified = { fg = _C.git.changed },
     NeoTreeGitUnstaged = { fg = _P.red300 },
     NeoTreeGitStaged = { fg = _C.git.added },
-    NeoTreeGitUntracked = { fg = _P.rose300 },
+    NeoTreeGitUntracked = { fg = _P.red300 },
     NeoTreeIndentMarker = { fg = _P.purple100 },
     NeoTreeSymbolicLinkTarget = { fg = _P.purple700 },
     NeoTreeTitleBar = { fg = _P.slate100, bg = _P.slate800 },
