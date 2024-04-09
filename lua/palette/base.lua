@@ -42,9 +42,9 @@ local colors = {
     deleted = _P.red500,
   },
   gitSigns = {
-    add = _P.green700,
-    change = _P.blue700,
-    delete = _P.red700,
+    add = _P.green500,
+    change = _P.blue500,
+    delete = _P.red500,
   },
   health = {
     error = _P.red500,
