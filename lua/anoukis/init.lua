@@ -19,7 +19,7 @@ function M.highlight(group, hl)
   if hl.style then
     if type(hl.style) == "table" then
       for _, style in ipairs(hl.style) do
-        if style == "" then
+        if style == "" or style == "none" then
           hl["italic"] = false
           hl["bold"] = false
           break
