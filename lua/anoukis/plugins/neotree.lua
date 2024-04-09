@@ -21,8 +21,8 @@ function M.setup()
 
     -- TODO: Add more highlights
     --
-    -- NeoTreeDirectoryName = { fg = C.blue },
-		-- NeoTreeDirectoryIcon = { fg = C.blue },
+    NeoTreeDirectoryName = { fg = _P.slate800 },
+		NeoTreeDirectoryIcon = { fg = _P.slate500 },
 		-- NeoTreeNormal = { fg = C.text, bg = active_bg },
 		-- NeoTreeNormalNC = { fg = C.text, bg = active_bg },
 		-- NeoTreeExpander = { fg = C.overlay0 },
@@ -30,7 +30,7 @@ function M.setup()
 		-- NeoTreeRootName = { fg = C.blue, style = { "bold" } },
 		-- NeoTreeSymbolicLinkTarget = { fg = C.pink },
 		-- NeoTreeModified = { fg = C.peach },
-		--
+    NeoTreeDotfile = { fg = _P.slate400 },
 		-- NeoTreeGitAdded = { fg = C.green },
 		-- NeoTreeGitConflict = { fg = C.red },
 		-- NeoTreeGitDeleted = { fg = C.red },
