@@ -4,6 +4,7 @@ function M.setup()
   local theme = {}
   local styles = _O.styles
 
+
   theme.highlights = {
     Comment = { fg = _C.comment,style = styles.comments }, -- Any comment
     SpecialComment = { link = "Special" }, -- Any comment

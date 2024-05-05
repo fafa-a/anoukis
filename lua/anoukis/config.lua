@@ -9,10 +9,10 @@ local default_options = {
     functions = { "bold" },
     keywords = {},
     strings = { "italic" },
-    variables = {},
+    variables = {"bold"},
     numbers = {},
     booleans = {},
-    types = {},
+    types = { "bold" },
     operators = {},
   },
 }
