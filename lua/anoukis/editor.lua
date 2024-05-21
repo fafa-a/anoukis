@@ -28,7 +28,7 @@ function M.setup()
     MsgArea = { link = "Normal" }, -- Area for messages and cmdline
     -- MsgSeparator = { link = "Normal" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = _P.blue500 }, -- |more-prompt|
-    NonText = { fg = _P.slate100 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).  See also |hl-EndOfBuffer|.
+    NonText = { fg = _C.comment }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).  See also |hl-EndOfBuffer|.
     Normal = { fg = _C.fg, bg = _O.transparent_background and _S.none or _C.bgFloat }, -- normal text
     NorlmalNC = { fg = _C.fg, bg = _C.error.bg }, -- normal text in non-current windows
     -- NormalSB = { link = "Normal" }, -- normal text in non-current windows
