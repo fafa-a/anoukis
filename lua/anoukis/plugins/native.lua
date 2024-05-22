@@ -56,6 +56,7 @@ function M.setup()
     LspCodeLens = { fg = _C.comment }, -- Used to highlight the virtual text of the codelens
     LspInlineHint = { fg = _C.comment }, -- Used to highlight the virtual text for the inline hint
     LspInfoBorder = { link = "FloatBorder" }, -- Used to render "info" diagnostic border
+    LspInlayHint = {fg = _P[_VARIANT .. 300]}, -- Used for the hints provided by the inlay hints
   }
 
   return theme
