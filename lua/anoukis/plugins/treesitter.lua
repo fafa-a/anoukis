@@ -92,7 +92,7 @@ function M.setup()
     ["@markup.environment.name"] = { link = "Comment" }, -- text indicating the type of an environment
     ["@markup.link"] = { fg = _P.purple400, style = _S.underline }, -- text references, footnotes, citations, etc.
     ["@markup.link.url"] = { fg = _P.purple400, style = _S.underline }, -- urls, links and emails
-    ["@markup.raw"] = { link = "Comment" }, -- used for inline code in markdown and for doc in python (""")
+    ["@markup.raw"] = { fg = _VARIANT and _P[_VARIANT .. 500] or _P.purple500 }, -- used for inline code in markdown and for doc in python (""")
     ["@markup.list"] = { link = "Special" }, -- todo notes
     ["@markup.list.checked"] = { link = "Special" }, -- todo notes
     ["@markup.list.unchecked"] = { link = "Special" }, -- todo notes
