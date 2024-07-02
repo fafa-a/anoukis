@@ -2,6 +2,7 @@ local M = {}
 
 local default_options = {
   transparent_background = false,
+  diagnostic_background = false,
   variants = "purple",
   styles = {
     comments = { "italic" },

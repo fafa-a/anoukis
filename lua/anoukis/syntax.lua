@@ -45,8 +45,14 @@ function M.setup()
     Italic = { style = _S.italic }, -- text that is italic
     -- Ignore = { fg = c.bg }, -- text that is ignored
 
-    Error = { fg = _C.error.fg, bg = _C.error.bg }, -- any erroneous construct
-    Todo = { fg = _C.info.fg, bg = _C.info.bg }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    -- Diagnostic
+    -- Error = { fg = _C.error.fg, bg = _C.error.bg }, -- any erroneous construct
+    Error = { fg = _C.error.fg ,bg = _O.diagnostic_background and _C.error.bg or _S.none }, -- any erroneous construct
+    -- Todo = { fg = _C.info.fg, bg = _C.info.bg }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { fg = _C.info.fg, bg = _O.diagnostic_background and _C.info.bg  or _S.none }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    -- WarningMsg = { fg = _C.warning.fg, bg = _C.warning.bg }, -- warning messages
+    WarningMsg = { fg = _C.warning.fg, bg = _O.diagnostic_background and _C.warning.bg or _S.none }, -- warning messages
+
     qfLineNr = { fg = _C.comment }, -- Line number for quickfix lists
     qfFileName = { fg = _C.constant }, -- File name for quickfix lists
     htmlH1 = { fg = _C.tag }, -- h1 in html
