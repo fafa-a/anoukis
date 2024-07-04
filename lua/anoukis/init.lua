@@ -1,6 +1,6 @@
 local editor = require("anoukis.editor")
 local syntax = require("anoukis.syntax")
-local terminal = require("anoukis.terminal")
+-- local terminal = require("anoukis.terminal")
 
 local M = {}
 
@@ -56,7 +56,7 @@ function M.load()
 
   local ed = editor.setup()
   local sy = syntax.setup()
-  terminal.setup()
+  -- terminal.setup()
 
   if vim.g.colors_name then
     vim.cmd("hi clear")
