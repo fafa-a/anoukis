@@ -24,7 +24,7 @@ function M.setup()
     Substitute = { fg = _C.bg, bg = _P.purple500 }, -- |:substitute| replacement text highlighting
     LineNr = { fg = _C.comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = { fg = _C.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen = { fg = _C.bg, bg = _P.purple700 }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen = { fg = _VARIANT and _P[_VARIANT .. 800] or _P.purple800, bg = _VARIANT and _P[_VARIANT .. 300] or  _P.purple300 }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     MsgArea = { link = "Normal" }, -- Area for messages and cmdline
     -- MsgSeparator = { link = "Normal" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = _P.blue500 }, -- |more-prompt|
