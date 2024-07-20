@@ -17,14 +17,18 @@ function M.setup()
     EndOfBuffer = { bg = _S.none }, -- filler lines (~) after the end of the buffer.  By default,-- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|. this is highlighted like |hl-NonText|.
     ErrorMsg = { fg = _C.error.fg, bg = _C.error.bg }, -- error messages on the command line
     VertSplit = { fg = _P.slate700 }, -- the column separating vertically split windows
-    Folded = { fg = _C.tag, bg = _C.punctuation }, -- line used for closed folds
-    FoldColumn = { link = "SignColumn" }, -- 'foldcolumn'
+    Folded = { fg = _C.tag, style = _S.bold }, -- line used for closed folds
+    -- Folded = { fg = _C.tag }, -- line used for closed folds
+    FoldColumn = { link = "Punctuation" }, -- 'foldcolumn'
     SignColumn = { link = "Normal" }, -- column where |signs| are displayed
     SignColumnSB = { link = "Normal" }, -- column where |signs| are displayed
     Substitute = { fg = _C.bg, bg = _P.purple500 }, -- |:substitute| replacement text highlighting
     LineNr = { fg = _C.comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = { fg = _C.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    MatchParen = { fg = _VARIANT and _P[_VARIANT .. 800] or _P.purple800, bg = _VARIANT and _P[_VARIANT .. 300] or  _P.purple300 }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen = {
+      fg = _VARIANT and _P[_VARIANT .. 800] or _P.purple800,
+      bg = _VARIANT and _P[_VARIANT .. 300] or _P.purple300,
+    }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     MsgArea = { link = "Normal" }, -- Area for messages and cmdline
     -- MsgSeparator = { link = "Normal" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = _P.blue500 }, -- |more-prompt|
@@ -32,7 +36,7 @@ function M.setup()
     Normal = { fg = _C.fg, bg = _O.transparent_background and _S.none or _C.bgFloat }, -- normal text
     NorlmalNC = { fg = _C.fg, bg = _C.error.bg }, -- normal text in non-current windows
     -- NormalSB = { link = "Normal" }, -- normal text in non-current windows
-    NormalFloat = { fg = _C.fg, bg = (_O.transparent_background and vim.o.winblend )and _S.none or _C.bgFloat }, -- Normal text in floating windows
+    NormalFloat = { fg = _C.fg, bg = (_O.transparent_background and vim.o.winblend) and _S.none or _C.bgFloat }, -- Normal text in floating windows
     FloatBorder = { fg = _P.slate900 }, -- Border of floating windows
     FloatTitle = { fg = _C.constant, style = _S.bold }, -- Title of floating windows
     Pmenu = { fg = _C.fg, bg = _P.gray100, blend = 0 }, -- Popup menu: normal item.
