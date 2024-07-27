@@ -94,7 +94,11 @@ function M.setup(options)
   local default_options = require("anoukis.config").options
   options = options or {}
   _O = vim.tbl_deep_extend("force", {}, default_options, options)
-  _VARIANT = _O.variants == "" and default_options.variants or _O.variants
+  -- _VARIANT = _O.variants == "" and default_options.variants or _O.variants
+  _VARIANT = _O.variants or default_options.variants
+  -- _COLOR_BACKGROUND = _O.color_background == "" and default_options.color_background or _O.color_background
+  _COLOR_BACKGROUND = _O.color_background or default_options.color_background
+
 end
 
 return M

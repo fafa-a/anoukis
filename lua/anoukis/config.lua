@@ -2,6 +2,7 @@ local M = {}
 
 local default_options = {
   transparent_background = false,
+  color_background = "white", --white , light , dark
   diagnostic_background = false,
   variants = "purple",
   styles = {

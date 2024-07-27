@@ -1,4 +1,3 @@
-
 local success, result = pcall(function()
   return require("anoukis.util").darken_color(_P[_VARIANT .. 25], 0.95)
 end)
@@ -15,15 +14,16 @@ end
 
 local colors = {
   attribute = _P.slate400,
-  bg = _VARIANT and _P[_VARIANT .. 25] or _P.purple25,
-  bgFloat = _VARIANT and _P[_VARIANT .. 25] or _P.purple25,
+  bg = _COLOR_BACKGROUND == "dark" and _P.gray900 or _P[_VARIANT .. 25],
+  bgFloat = _COLOR_BACKGROUND == "dark" and _P.gray900 or _P[_VARIANT .. 25],
   comment = _P.slate300,
   constant = _P.slate950,
   cursearch = {
-    fg = _VARIANT and _P[_VARIANT .. 25] or _P.purple25,
-    bg = _VARIANT and _P[_VARIANT .. 800] or _P.purple800,
+    fg = _P[_VARIANT .. 25],
+    bg = _P[_VARIANT .. 800],
   },
-  cursor = _VARIANT and _P[_VARIANT .. 500] or _P.purple500,
+  -- cursor = _P[_VARIANT .. 500],
+  cursor = _P.red500,
   cursorLine = _VARIANT and cursor_line_bg or _P.purple75,
   diff = {
     add = _P.green500,
@@ -35,7 +35,7 @@ local colors = {
     fg = _P.red500,
     bg = _P.red200,
   },
-  fg = _P.slate800,
+  fg = _COLOR_BACKGROUND == "dark" and _P.slate200 or _P.slate800,
   git = {
     added = _P.green500,
     changed = _P.blue500,
@@ -55,23 +55,23 @@ local colors = {
     fg = _P.blue500,
     bg = _P.blue200,
   },
-  keyword = _P.slate500,
-  label = _P.slate400,
-  method = _P.slate800,
-  number = _P.slate800,
-  parameter = _P.slate400,
-  property = _P.slate400,
-  punctuation = _P.slate700,
+  keyword = _COLOR_BACKGROUND == "dark" and _P.slate100 or _P.slate500,
+  label = _COLOR_BACKGROUND == "dark" and _P.slate50 or _P.slate400,
+  method = _COLOR_BACKGROUND == "dark" and _P.slate300 or _P.slate800,
+  number = _COLOR_BACKGROUND == "dark" and _P.slate300 or _P.slate800,
+  parameter = _COLOR_BACKGROUND == "dark" and _P.slate50 or _P.slate400,
+  property = _COLOR_BACKGROUND == "dark" and _P.slate50 or _P.slate400,
+  punctuation = _COLOR_BACKGROUND == "dark" and _P.slate200 or _P.slate700,
   search = {
-    fg = _VARIANT and _P[_VARIANT .. 25] or _P.purple25,
-    bg = _VARIANT and _P[_VARIANT .. 500] or _P.purple500,
+    fg = _P[_VARIANT .. 25],
+    bg = _P[_VARIANT .. 500],
   },
-  string = _P.slate800,
-  tag = _P.slate500,
-  type = _P.slate600,
+  string = _COLOR_BACKGROUND == "dark" and _P.slate300 or _P.slate800,
+  tag = _COLOR_BACKGROUND == "dark" and _P.slate100 or _P.slate500,
+  type = _COLOR_BACKGROUND == "dark" and _P.slate100 or _P.slate600,
   visual = {
-    fg = _P.slate800,
-    bg = _VARIANT and _P[_VARIANT .. 300] or _P.purple300,
+    fg = _COLOR_BACKGROUND == "dark" and _P.slate100 or _P.slate800,
+    bg = _P[_VARIANT .. 300],
   },
   warning = {
     fg = _P.orange500,
