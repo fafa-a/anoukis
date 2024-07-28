@@ -8,7 +8,7 @@ function M.setup()
     -- editor
     -- ColorColumn = { bg = c.cursorLine }, -- used for the columns set with 'colorcolumn'
     -- Conceal = { fg = c.slate400, bg = c.bg }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor = { fg = _C.bg, bg = _C.cursor }, -- character under the cursor
+    Cursor = { fg = _C.cursor.fg, bg = _C.cursor.bg }, -- character under the cursor
     lCursor = { link = "Cursor" }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM = { link = "Cursor" }, -- like Cursor, but used when in IME mode |CursorIM|
     -- CursorColumn = { bg = c.cursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
@@ -26,23 +26,23 @@ function M.setup()
     LineNr = { fg = _C.comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr = { fg = _C.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     MatchParen = {
-      fg = _VARIANT and _P[_VARIANT .. 800] or _P.purple800,
-      bg = _VARIANT and _P[_VARIANT .. 300] or _P.purple300,
+      fg = _C.matchParen.fg,
+      bg = _C.matchParen.bg,
     }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     MsgArea = { link = "Normal" }, -- Area for messages and cmdline
     -- MsgSeparator = { link = "Normal" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg = { fg = _P.blue500 }, -- |more-prompt|
     NonText = { fg = _C.comment }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).  See also |hl-EndOfBuffer|.
     Normal = { fg = _C.fg, bg = _O.transparent_background and _S.none or _C.bgFloat }, -- normal text
-    NorlmalNC = { fg = _C.fg, bg = _C.error.bg }, -- normal text in non-current windows
+    NorlmalNC = { fg = _C.fg, bg = _C.bg }, -- normal text in non-current windows
     -- NormalSB = { link = "Normal" }, -- normal text in non-current windows
     NormalFloat = { fg = _C.fg, bg = (_O.transparent_background and vim.o.winblend) and _S.none or _C.bgFloat }, -- Normal text in floating windows
     FloatBorder = { fg = _P.slate900 }, -- Border of floating windows
     FloatTitle = { fg = _C.constant, style = _S.bold }, -- Title of floating windows
-    Pmenu = { fg = _C.fg, bg = _P.gray100, blend = 0 }, -- Popup menu: normal item.
-    PmenuSel = { bg = _P.gray300 }, -- Popup menu: selected item.
-    PmenuSbar = { bg = _P.gray400 }, -- Popup menu: scrollbar.
-    PmenuThumb = { bg = _P.gray950 }, -- Popup menu: Thumb of the scrollbar.
+    Pmenu = { fg = _C.p.menu.fg, bg =_C.p.menu.bg, blend = _C.p.menu.blend }, -- Popup menu: normal item.
+    PmenuSel = { bg = _C.p.menuSel.bg }, -- Popup menu: selected item.
+    PmenuSbar = { bg = _C.p.menuSbar.bg }, -- Popup menu: scrollbar.
+    PmenuThumb = { bg = _C.p.menuThumb.bg }, -- Popup menu: Thumb of the scrollbar.
     Question = { fg = _P.blue500 }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine = { fg = _C.bg, bg = _P.blue500 }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     Search = { fg = _C.search.fg, bg = _C.search.bg }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.

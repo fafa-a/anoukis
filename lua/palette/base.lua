@@ -12,19 +12,7 @@ if success then
   cursor_line_bg = result
 end
 
-local colors = {
-  attribute = _P.slate400,
-  bg = _COLOR_BACKGROUND == "dark" and _P.gray900 or _P[_VARIANT .. 25],
-  bgFloat = _COLOR_BACKGROUND == "dark" and _P.gray900 or _P[_VARIANT .. 25],
-  comment = _P.slate300,
-  constant = _P.slate950,
-  cursearch = {
-    fg = _P[_VARIANT .. 25],
-    bg = _P[_VARIANT .. 800],
-  },
-  -- cursor = _P[_VARIANT .. 500],
-  cursor = _P.red500,
-  cursorLine = _VARIANT and cursor_line_bg or _P.purple75,
+local extra_color = {
   diff = {
     add = _P.green500,
     change = _P.blue500,
@@ -35,7 +23,6 @@ local colors = {
     fg = _P.red500,
     bg = _P.red200,
   },
-  fg = _COLOR_BACKGROUND == "dark" and _P.slate200 or _P.slate800,
   git = {
     added = _P.green500,
     changed = _P.blue500,
@@ -55,27 +42,123 @@ local colors = {
     fg = _P.blue500,
     bg = _P.blue200,
   },
-  keyword = _COLOR_BACKGROUND == "dark" and _P.slate100 or _P.slate500,
-  label = _COLOR_BACKGROUND == "dark" and _P.slate50 or _P.slate400,
-  method = _COLOR_BACKGROUND == "dark" and _P.slate300 or _P.slate800,
-  number = _COLOR_BACKGROUND == "dark" and _P.slate300 or _P.slate800,
-  parameter = _COLOR_BACKGROUND == "dark" and _P.slate50 or _P.slate400,
-  property = _COLOR_BACKGROUND == "dark" and _P.slate50 or _P.slate400,
-  punctuation = _COLOR_BACKGROUND == "dark" and _P.slate200 or _P.slate700,
+  warning = {
+    fg = _P.orange500,
+    bg = _P.orange200,
+  },
+}
+
+local light = {
+  attribute = _P.slate400,
+  bg = _P[_VARIANT .. 25],
+  bgFloat = _P[_VARIANT .. 25],
+  comment = _P.slate300,
+  constant = _P.slate950,
+  cursearch = {
+    fg = _P[_VARIANT .. 25],
+    bg = _P[_VARIANT .. 800],
+  },
+  cursor = {
+    fg = _P[_VARIANT .. 950],
+    bg = _P[_VARIANT .. 500],
+  },
+  cursorLine = cursor_line_bg,
+  fg = _P.slate800,
+  keyword = _P.slate500,
+  label = _P.slate400,
+  method = _P.slate800,
+  number = _P.slate800,
+  parameter = _P.slate400,
+  property = _P.slate400,
+  punctuation = _P.slate700,
   search = {
     fg = _P[_VARIANT .. 25],
     bg = _P[_VARIANT .. 500],
   },
-  string = _COLOR_BACKGROUND == "dark" and _P.slate300 or _P.slate800,
-  tag = _COLOR_BACKGROUND == "dark" and _P.slate100 or _P.slate500,
-  type = _COLOR_BACKGROUND == "dark" and _P.slate100 or _P.slate600,
+  string = _P.slate800,
+  tag = _P.slate500,
+  type = _P.slate600,
   visual = {
-    fg = _COLOR_BACKGROUND == "dark" and _P.slate100 or _P.slate800,
+    fg = _P.slate800,
     bg = _P[_VARIANT .. 300],
   },
-  warning = {
-    fg = _P.orange500,
-    bg = _P.orange200,
+  matchParen = {
+    fg = _P[_VARIANT .. 800],
+    bg = _P[_VARIANT .. 300],
+  },
+  floatBorder = _P.slate900,
+  p = {
+    menu = {
+      fg = _P.slate800,
+      bg = _P.gray100,
+      blend = 0,
+    },
+    menuSel = {
+      bg = _P[_VARIANT .. 300],
+    },
+    menuSbar = {
+      bg = _P.gray400,
+    },
+    menuThumb = {
+      bg = _P.gray950,
+    },
+  },
+}
+
+local dark = {
+  attribute = _P.slate200,
+  bg = _P[_VARIANT .. 950],
+  bgFloat = _P[_VARIANT .. 950],
+  comment = _P.slate500,
+  constant = _P.white,
+  cursearch = {
+    fg = _P[_VARIANT .. 800],
+    bg = _P[_VARIANT .. 25],
+  },
+  cursor = {
+    fg = _P.slate950,
+    bg = _P.yellow300,
+  },
+  cursorLine = _P[_VARIANT .. 900],
+  fg = _P.white,
+  keyword = _P.slate200,
+  label = _P.slate100,
+  method = _P.white,
+  number = _P.slate200,
+  parameter = _P.slate100,
+  property = _P.slate100,
+  punctuation = _P.slate400,
+  search = {
+    fg = _P[_VARIANT .. 500],
+    bg = _P[_VARIANT .. 25],
+  },
+  string = _P.slate50,
+  tag = _P.slate100,
+  type = _P.slate100,
+  visual = {
+    fg = _P.slate800,
+    bg = _P[_VARIANT .. 300],
+  },
+  matchParen = {
+    fg = _P[_VARIANT .. 25],
+    bg = _P[_VARIANT .. 800],
+  },
+  floatBorder = _P.slate800,
+  p = {
+    menu = {
+      fg = _P.slate100,
+      bg = _P[_VARIANT .. 950],
+      blend = 0,
+    },
+    menuSel = {
+      bg = _P[_VARIANT .. 700],
+    },
+    menuSbar = {
+      bg = _P.gray300,
+    },
+    menuThumb = {
+      bg = _P.gray500,
+    },
   },
 }
 
@@ -95,6 +178,9 @@ local style = {
   nocombine = "nocombine",
   none = "NONE",
 }
+
+local theme = _COLOR_BACKGROUND == "dark" and dark or light
+local colors = vim.tbl_deep_extend("force", extra_color, theme)
 
 return {
   colors = colors,

@@ -2,6 +2,7 @@
 
 -- stylua: ignore
 local colors = {
+  white   = '#ffffff',
   slate25   = '#fbfcfd',
   slate50   = "#f8fafc",
   slate100  = "#f1f5f9",
