@@ -1,4 +1,3 @@
--- stylua: ignore
 local colors = {
   light = {
     normal = {
