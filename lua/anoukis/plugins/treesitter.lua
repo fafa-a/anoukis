@@ -92,7 +92,7 @@ function M.setup()
     ["@markup.environment.name"] = { link = "Comment" }, -- text indicating the type of an environment
     ["@markup.link"] = { fg = _P.purple400, style = _S.underline }, -- text references, footnotes, citations, etc.
     ["@markup.link.url"] = { fg = _P.purple400, style = _S.underline }, -- urls, links and emails
-    ["@markup.raw"] = { fg = _VARIANT and _P[_VARIANT .. 500] or _P.purple500 }, -- used for inline code in markdown and for doc in python (""")
+    ["@markup.raw"] = { fg = _P[_VARIANT .. 500]}, -- used for inline code in markdown and for doc in python (""")
     ["@markup.list"] = { link = "Special" }, -- todo notes
     ["@markup.list.checked"] = { link = "Special" }, -- todo notes
     ["@markup.list.unchecked"] = { link = "Special" }, -- todo notes
@@ -120,8 +120,8 @@ function M.setup()
     ["@type.tag.css"] = { link = "Constant" },
     ["@string.plain.css"] = { link = "String" },
     ["@property.css"] = { link = "Statement" },
-    ["@number.css"] = { fg = variant and _P[variant .. 500] or _P.purple500 },
-    ["@punctuation.bracket.css"] = { fg = _P.slate950 },
+    ["@number.css"] = { fg = _P[variant .. 500]},
+    ["@punctuation.bracket.css"] = { fg =_COLOR_BACKGROUND == 'light' and _P.slate950  or _P.slate500 },
 
     -- toml
     ["@property.toml"] = { link = "Constant" }, -- Differentiates between string and properties
@@ -160,17 +160,17 @@ function M.setup()
     ["@lsp.typemod.method.defaultLibrary.rust"] = { link = "Function" },
 
     -- Svelte
-    ["@tag.svelte"] = { fg = _P.slate950 },
+    ["@tag.svelte"] = { fg =  _COLOR_BACKGROUND == 'light' and _P.slate950 or _P.slate500 },
     ["@tag.attribute.svelte"] = { link = "Tag" },
-    ["@tag.delimiter.svelte"] = { fg = _P.slate950 },
+    ["@tag.delimiter.svelte"] = { fg =  _COLOR_BACKGROUND == 'light' and _P.slate950 or _P.slate500 },
     ["@string.svelte"] = { link = "Constant" },
     ["@variable.svelte"] = { link = "Constant" },
     ["@none.svelte"] = { link = "Constant" },
     ["@lsp.typemod.variable.local.svelte"] = { fg = _C.constant, style = _S.bold },
-    ["@string.special.url.svelte"] = { fg = _P.slate600 },
+    ["@string.special.url.svelte"] = { fg = _P[_COLOR_BACKGROUND == 'light' and _VARIANT .. 600 or _VARIANT .. 300] },
     ["@property.svelte"] = { link = "Constant" },
     ["@function.svelte"] = { link = "Function" },
-    ["@markup.heading.svelte"] = { fg = _P.slate600 },
+    ["@markup.heading.svelte"] = { fg = _P[_COLOR_BACKGROUND == 'light' and _VARIANT .. 600 or _VARIANT .. 300] },
   }
   return theme
 end
