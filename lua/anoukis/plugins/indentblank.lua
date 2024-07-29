@@ -5,7 +5,7 @@ function M.setup()
   local theme = {}
 
   theme.highlights = {
-    IblIndent = { fg = variant and _P[variant .. 100] or _P.purple100 },
+    IblIndent = { fg = _P[_COLOR_BACKGROUND == 'light' and variant .. 100 or variant .. 900] },
   }
   return theme
 end
