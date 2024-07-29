@@ -2,6 +2,7 @@ local M = {}
 
 function M.setup()
   local theme = {}
+  local variant = _O.variants
 
   theme.highlights = {
     NeoTreeRootName = { fg = _C.constant, style = _S.bold },
@@ -13,7 +14,7 @@ function M.setup()
     NeoTreeGitUnstaged = { fg = _P.red300 },
     NeoTreeGitStaged = { fg = _C.git.added },
     NeoTreeGitUntracked = { fg = _P.red300 },
-    NeoTreeIndentMarker = { fg = _P.purple100 },
+    NeoTreeIndentMarker = { fg = _COLOR_BACKGROUND == 'light' and _P[variant .. 100] or _P[variant .. 700] },
     NeoTreeSymbolicLinkTarget = { fg = _P.purple700 },
     NeoTreeTitleBar = { fg = _P.slate100, bg = _P.slate800 },
 		NeoTreeFloatBorder = {link = "FloatBorder"},
