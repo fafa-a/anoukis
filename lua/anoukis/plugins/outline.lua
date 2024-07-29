@@ -6,8 +6,8 @@ function M.setup()
 
   theme.highlights = {
     OutlineCurrent = {
-      fg = variant and _P[variant .. 500] or _P.purple500,
-      bg = variant and _P[variant .. 200] or _P.purple200,
+      fg = _P[variant .. 500],
+      bg = _P[variant .. 200],
     },
     OutlineGuides = { fg = _P.slate400 },
     OutlineFoldMarker = { fg = _C.constant, style = _S.bold },
