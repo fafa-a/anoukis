@@ -21,7 +21,7 @@ function M.setup()
 
     -- TODO: Add more highlights
     --
-    NeoTreeDirectoryName = { fg = _P.slate800 },
+    NeoTreeDirectoryName = { fg = _COLOR_BACKGROUND == 'light' and _P.slate800 or _P.slate200 },
 		NeoTreeDirectoryIcon = { fg = _P.slate500 },
 		-- NeoTreeNormal = { fg = C.text, bg = active_bg },
 		-- NeoTreeNormalNC = { fg = C.text, bg = active_bg },
