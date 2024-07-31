@@ -4,15 +4,14 @@ local variant = _O.variants
 function M.setup()
   local theme = {}
 
-  local bg_highlight =   _P[_COLOR_BACKGROUND == 'light' and variant ..100 or variant ..700]
   local active_bg = _O.transparent_background and _S.none or _C.bg
-  local inactive_bg =_P[_COLOR_BACKGROUND == 'light' and variant ..100 or variant ..700] 
-  local separator_fg = _P[_COLOR_BACKGROUND == 'light' and variant ..900 or variant ..100]
+  local inactive_bg =_COLOR_BACKGROUND == 'light' and _P.gray300 or _P.gray700
+  local separator_fg = _COLOR_BACKGROUND == 'light' and _P.gray900 or _P.gray300
 
   theme = {
     -- buffers
-    background = { fg = _P[_COLOR_BACKGROUND == 'light' and variant ..600 or variant ..300], bg = inactive_bg },
-    buffer_visible = { fg = _P[_COLOR_BACKGROUND == 'light' and variant ..600 or variant ..300], bg = inactive_bg },
+    background = { fg =_COLOR_BACKGROUND == 'light' and _P.gray600 or _P.gray300, bg = inactive_bg },
+    buffer_visible = { fg =_COLOR_BACKGROUND == 'light' and _P.gray600 or _P.gray300, bg = inactive_bg },
     buffer_selected = { fg = _C.constant, bg = active_bg, bold = false, italic = false }, -- current
     -- Duplicate
     duplicate_selected = { fg = _C.constant, bg = active_bg, bold = false, italic = false },
@@ -32,11 +31,11 @@ function M.setup()
     separator_selected = { fg = separator_fg, bg = active_bg },
     offset_separator = { fg = separator_fg, bg = active_bg },
     -- close buttons
-    close_button = { fg = _P[_COLOR_BACKGROUND == 'light' and variant ..600 or variant ..300], bg = inactive_bg },
-    close_button_visible = { fg = _P[_COLOR_BACKGROUND == 'light' and variant ..600 or variant ..300], bg = inactive_bg },
+    close_button = { fg = _COLOR_BACKGROUND == 'light' and _P.gray600 or _P.gray200, bg = inactive_bg },
+    close_button_visible = { fg = _COLOR_BACKGROUND == 'light' and _P.gray600 or _P.gray200, bg = inactive_bg },
     close_button_selected = { fg = _C.constant, bg = active_bg },
     -- Empty fill
-    fill = { bg = bg_highlight },
+    fill = { bg = _COLOR_BACKGROUND == 'light' and _P.gray400 or _P.gray800 },
     -- Numbers
     numbers = { fg = _P[_COLOR_BACKGROUND == 'light' and variant ..300 or variant ..100], bg = inactive_bg },
     numbers_visible = { fg = _P[_COLOR_BACKGROUND == 'light' and variant ..300 or variant ..100], bg = inactive_bg },
