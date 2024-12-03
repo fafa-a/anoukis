@@ -16,7 +16,7 @@ function M.setup()
     NeoTreeGitUntracked = { fg = _P.red300 },
     NeoTreeIndentMarker = { fg = _COLOR_BACKGROUND == 'light' and _P[variant .. 100] or _P[variant .. 700] },
     NeoTreeSymbolicLinkTarget = { fg = _P.purple700 },
-    NeoTreeTitleBar = { fg = _P.slate100, bg = _P.slate800 },
+    NeoTreeTitleBar = { fg = _P.slate100, bg = _P.slate950 },
 		NeoTreeFloatBorder = { link = "FloatBorder" },
 		NeoTreeFloatTitle = { link = "FloatTitle" },
 
@@ -24,7 +24,7 @@ function M.setup()
     --
     NeoTreeDirectoryName = { fg = _COLOR_BACKGROUND == 'light' and _P.slate800 or _P.slate200 },
 		NeoTreeDirectoryIcon = { fg = _P.slate500 },
-		-- NeoTreeNormal = { fg = C.text, bg = active_bg },
+		NeoTreeNormal = { fg = _C.fg, bg = _C.bg },
 		-- NeoTreeNormalNC = { fg = C.text, bg = active_bg },
 		-- NeoTreeExpander = { fg = C.overlay0 },
 		-- NeoTreeIndentMarker = { fg = C.overlay0 },
