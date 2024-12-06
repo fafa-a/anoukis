@@ -83,11 +83,13 @@ function M.load()
     ::continue::
   end
 
-  require("lualine").setup({
-    options = {
-      theme = require("lualine.themes.anoukis"),
-    },
-  })
+  if pcall(require, "lualine") then
+    require("lualine").setup({
+      options = {
+        theme = require("lualine.themes.anoukis"),
+      },
+    })
+  end
 end
 
 function M.setup(options)
@@ -96,7 +98,6 @@ function M.setup(options)
   _O = vim.tbl_deep_extend("force", {}, default_options, options)
   _VARIANT = _O.variants or default_options.variants
   _COLOR_BACKGROUND = _O.color_background or default_options.color_background
-
 end
 
 return M
