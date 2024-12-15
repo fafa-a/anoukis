@@ -4,9 +4,8 @@ function M.setup()
   local theme = {}
   local styles = _O.styles
 
-
   theme.highlights = {
-    Comment = { fg = _C.comment,style = styles.comments }, -- Any comment
+    Comment = { fg = _C.comment, style = styles.comments }, -- Any comment
     SpecialComment = { link = "Special" }, -- Any comment
     Constant = { fg = _C.constant, style = styles.variables }, -- Any constant
     String = { fg = _C.string, style = styles.strings }, -- Any string
@@ -47,9 +46,9 @@ function M.setup()
 
     -- Diagnostic
     -- Error = { fg = _C.error.fg, bg = _C.error.bg }, -- any erroneous construct
-    Error = { fg = _C.error.fg ,bg = _O.diagnostic_background and _C.error.bg or _S.none }, -- any erroneous construct
+    Error = { fg = _C.error.fg, bg = _O.diagnostic_background and _C.error.bg or _S.none }, -- any erroneous construct
     -- Todo = { fg = _C.info.fg, bg = _C.info.bg }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    Todo = { fg = _C.info.fg, bg = _O.diagnostic_background and _C.info.bg  or _S.none }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo = { fg = _C.info.fg, bg = _O.diagnostic_background and _C.info.bg or _S.none }, -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     -- WarningMsg = { fg = _C.warning.fg, bg = _C.warning.bg }, -- warning messages
     WarningMsg = { fg = _C.warning.fg, bg = _O.diagnostic_background and _C.warning.bg or _S.none }, -- warning messages
 
