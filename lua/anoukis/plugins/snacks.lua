@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   local theme = {}
-  local bgColor = _C.bg
+  local bgColor = _C.cursorline
   local variant_100 = _P[_VARIANT .. 100]
   local variant_900 = _P[_VARIANT .. 900]
 
