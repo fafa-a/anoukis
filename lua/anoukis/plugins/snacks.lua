@@ -24,6 +24,13 @@ function M.setup()
     SnacksDashboardTerminal = { fg = variant_900 },
     SnacksDashboardDir = { fg = variant_900 },
     SnacksDashboardSpecial = { fg = _P[_VARIANT .. 700], bg = _P[_VARIANT .. 200] },
+
+    -- :lua Snacks.picker.highlights({pattern = "SnacksPicker"})
+    SnacksPickerInput = { link = "Normal" },
+    SnacksPickerList = { link = "Normal" },
+    SnacksPickerPreview = { link = "Normal" },
+    SnacksPickerMatch = { fg = _P[_VARIANT .. 600], style = _S.bold },
+    SnacksPickerTotals = { fg = _P[_VARIANT .. 300] },
   }
 
   return theme
