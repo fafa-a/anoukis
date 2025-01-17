@@ -36,7 +36,8 @@ function M.setup()
     Normal = { fg = _C.fg, bg = _O.transparent_background and _S.none or _C.bg }, -- normal text
     NorlmalNC = { fg = _C.fg, bg = _C.bg }, -- normal text in non-current windows
     NormalSB = { link = "Normal" }, -- normal text in non-current windows
-    NormalFloat = { fg = _C.fg, bg = _C.bg }, -- Normal text in floating windows.
+    -- NormalFloat = { fg = _C.fg, bg = _C.bg }, -- Normal text in floating windows.
+    NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
     FloatBorder = { fg = _P.slate950, bg = _S.none }, -- Border of floating windows
     FloatTitle = { fg = _C.constant, style = _S.bold }, -- Title of floating windows
     Pmenu = { fg = _C.p.menu.fg, bg = _C.p.menu.bg, blend = _C.p.menu.blend }, -- Popup menu: normal item.
