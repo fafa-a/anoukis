@@ -50,13 +50,13 @@ function M.setup()
     LspDiagnosticsUnderlineInformation = { style = _S.underline, sp = _C.info.fg }, -- Used to underline "Information" diagnostics
     LspDiagnosticsUnderlineHint = { style = _S.underline, sp = _C.info.fg }, -- Used to underline "Hint" diagnostics
 
-    LspReferenceText = { link = "NormalFloat" }, -- Used for highlighting "text" references
-    LspReferenceRead = { link = "NormalFloat" }, -- Used for highlighting "read" references
-    LspReferenceWrite = { link = "NormalFloat" }, -- Used for highlighting "write" references
+    LspReferenceText = { fg = _C.fg, bg = _P[_VARIANT .. 200] }, -- Used for highlighting "text" references
+    LspReferenceRead = { link = "LspReferenceText" }, -- Used for highlighting "read" references
+    LspReferenceWrite = { link = "LspReferenceText" }, -- Used for highlighting "write" references
     LspCodeLens = { fg = _C.comment }, -- Used to highlight the virtual text of the codelens
     LspInlineHint = { fg = _C.comment }, -- Used to highlight the virtual text for the inline hint
     LspInfoBorder = { link = "FloatBorder" }, -- Used to render "info" diagnostic border
-    LspInlayHint = {fg = _P[_COLOR_BACKGROUND == 'light' and _VARIANT .. 300 or _VARIANT .. 700]}, -- Used for the hints provided by the inlay hints
+    LspInlayHint = { fg = _P[_COLOR_BACKGROUND == "light" and _VARIANT .. 300 or _VARIANT .. 700] }, -- Used for the hints provided by the inlay hints
   }
 
   return theme
