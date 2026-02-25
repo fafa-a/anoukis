@@ -88,11 +88,12 @@ function M.load()
 end
 
 function M.setup(options)
-  local default_options = require("anoukis.config").options
+  local config = require("anoukis.config")
   options = options or {}
-  _O = vim.tbl_deep_extend("force", {}, default_options, options)
-  _VARIANT = _O.variants or default_options.variants
-  _COLOR_BACKGROUND = _O.color_background or default_options.color_background
+  options = config.validate(options)
+  _O = vim.tbl_deep_extend("force", {}, config.options, options)
+  _VARIANT = _O.variants
+  _COLOR_BACKGROUND = _O.color_background
 end
 
 return M

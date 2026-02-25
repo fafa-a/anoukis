@@ -1,15 +1,13 @@
-local success, result = pcall(function()
-  return require("anoukis.util").darken_color(_P[_VARIANT .. 25], 0.95)
-end)
+local cursor_line_bg = _P and _P[_VARIANT .. 50] or nil
 
-if not success then
-  vim.notify = require("notify")
-  vim.notify("An error occurred: " .. result, vim.log.levels.ERROR, { title = "Anoukis setup" })
-end
-
-local cursor_line_bg
-if success then
-  cursor_line_bg = result
+if _P and _VARIANT then
+  local ok, util = pcall(require, "anoukis.util")
+  if ok then
+    local success, result = pcall(util.darken_color, _P[_VARIANT .. 25], 0.95)
+    if success then
+      cursor_line_bg = result
+    end
+  end
 end
 
 local extra_color = {

@@ -34,7 +34,7 @@ function M.setup()
     MoreMsg = { fg = _P.blue500 }, -- |more-prompt|
     NonText = { fg = _C.comment }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).  See also |hl-EndOfBuffer|.
     Normal = { fg = _C.fg, bg = _O.transparent_background and _S.none or _C.bg }, -- normal text
-    NorlmalNC = { fg = _C.fg, bg = _C.bg }, -- normal text in non-current windows
+    NormalNC = { fg = _C.fg, bg = _C.bg }, -- normal text in non-current windows
     NormalSB = { link = "Normal" }, -- normal text in non-current windows
     -- NormalFloat = { fg = _C.fg, bg = _C.bg }, -- Normal text in floating windows.
     NormalFloat = { link = "Normal" }, -- Normal text in floating windows.
@@ -50,7 +50,6 @@ function M.setup()
     IncSearch = { link = "Search" }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     CurSearch = { fg = _C.cursearch.fg, bg = _C.cursearch.bg }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     SpecialKey = { fg = _C.attribute }, -- Unprintable characters: text displayed differently from what it really is.
-    -- FIXME highlight any word as an error
     SpellBad = { fg = _C.error.fg, bg = _C.error.bg, style = _S.undercurl }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     SpellCap = { fg = _C.warning.fg, bg = _C.warning.bg, style = _S.undercurl }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     SpellLocal = { fg = _C.info.fg, bg = _C.info.bg, style = _S.undercurl }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
