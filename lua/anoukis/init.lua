@@ -6,10 +6,12 @@ local M = {}
 
 local function get_plugin_filenames(directory)
   local filenames = {}
-  for file in io.popen("ls -1 " .. directory):lines() do
-    local name, extension = file:match("([^%.]*)%.([^%.]*)$")
-    if extension == "lua" then -- Ensure only Lua files are considered
-      table.insert(filenames, name)
+  for name, type in vim.fs.dir(directory) do
+    if type == "file" and name:match("%.lua$") then
+      local base_name = name:match("(.+)%.lua$")
+      if base_name then
+        table.insert(filenames, base_name)
+      end
     end
   end
   return filenames
@@ -72,23 +74,16 @@ function M.load()
 
   local plugin_names = get_plugin_filenames(plugin_dir)
 
+  local excluded_plugins = { bufferline = true }
+
   for _, name in ipairs(plugin_names) do
-    if name == "bufferline" then
-      goto continue
+    if not excluded_plugins[name] then
+      local ok, plugin = pcall(require, "anoukis.plugins." .. name)
+      if ok then
+        local pl = plugin.setup()
+        M.syntax(pl.highlights)
+      end
     end
-
-    local plugin = require("anoukis.plugins." .. name)
-    local pl = plugin.setup()
-    M.syntax(pl.highlights)
-    ::continue::
-  end
-
-  if pcall(require, "lualine") then
-    require("lualine").setup({
-      options = {
-        theme = require("lualine.themes.anoukis"),
-      },
-    })
   end
 end
 
