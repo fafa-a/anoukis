@@ -17,8 +17,8 @@ function M.setup()
     TelescopeBorder = { link = "FloatBorder" },
     TelescopeMatching = { fg = colors[_COLOR_BACKGROUND].match.fg, bg = colors[_COLOR_BACKGROUND].match.bg, style = _S.bold },
     TelescopeSelection = { fg = _C.constant, bg = colors[_COLOR_BACKGROUND].selection },
-    TelescopeSelectionCaret = { link = "TelescopeSelection", style = "bold" },
-    TelescopeResultsTitle = { fg = _C.constant, style = "bold" },
+    TelescopeSelectionCaret = { link = "TelescopeSelection", style = _S.bold },
+    TelescopeResultsTitle = { fg = _C.constant, style = _S.bold },
     TelescopePreviewTitle = { link = "TelescopeResultsTitle" },
     TelescopePromptTitle = { link = "TelescopeResultsTitle" },
   }
